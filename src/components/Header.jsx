@@ -21,6 +21,14 @@ function Header() {
               <a href="#">Profile</a>
             </li>
           </ul>
+          <ul>
+            <li>
+              <a href="#">Log in</a>
+            </li>
+            <li>
+              <a href="#">Register</a>
+            </li>
+          </ul>
         </nav>
       </header>
     </>
