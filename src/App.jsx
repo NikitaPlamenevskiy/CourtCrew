@@ -1,10 +1,12 @@
-import { Header } from "./components/Header";
+import { Header } from "./components/header/Header";
+import { Matches } from "./components/news/Mathces";
 import "./App.css";
 
 function App() {
   return (
     <>
       <Header />
+      <Matches />
     </>
   );
 }
