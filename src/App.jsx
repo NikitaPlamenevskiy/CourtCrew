@@ -1,10 +1,10 @@
-import logo from "./assets/images/logo.png";
+import { Header } from "./components/Header";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <img src={logo} alt="logo" />
+      <Header />
     </>
   );
 }
