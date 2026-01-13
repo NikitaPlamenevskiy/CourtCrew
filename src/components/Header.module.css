@@ -1,7 +1,7 @@
 .header {
-  width: 100%;
+  max-width: 100%;
   padding: 10px;
-  border: 1px solid #ec7329;
+  background-color: #ec7329;
   border-radius: 12px;
   display: flex;
   gap: 100px;
@@ -15,7 +15,7 @@
 
 ul {
   display: flex;
-  gap: 100px;
+  gap: 30px;
   margin: 0px;
   padding: 0px;
 }
