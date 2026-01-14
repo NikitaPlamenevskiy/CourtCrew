@@ -1,8 +1,4 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #182c47;
@@ -17,11 +13,13 @@
 
   background-image: url("./assets/images/Background.svg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 200vh;
   background-position: center;
   background-position-y: -50px;
   
+  padding-top: 110px;
   padding-bottom: 170px;
+
 }
 
 body {
