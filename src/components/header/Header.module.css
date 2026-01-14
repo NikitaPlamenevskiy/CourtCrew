@@ -1,14 +1,10 @@
 .header {
   max-width: 100%;
-  padding: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: #ec7329;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  display: flex;
-  gap: 50px;
-  align-items: center;
 }
 
 .header_logo {
@@ -24,7 +20,7 @@ nav{
 
 ul {
   display: flex;
-  gap: 30px;
+  gap: 10px;
   margin: 0px;
   padding: 0px;
 }

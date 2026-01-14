@@ -1,16 +1,12 @@
 import { MatchCard } from "./MatchCard";
+import styles from "./Matches.module.css";
 
 function Matches() {
   return (
     <>
-      <h1>Matches</h1>
+      <h1 className={styles.title}>Matches</h1>
       <div
-        style={{
-          display: "flex",
-          gap: "30px",
-          overflow: "scroll",
-          scrollbarWidth: "none",
-        }}
+        className={styles.cards_container}
       >
         <MatchCard />
         <MatchCard />

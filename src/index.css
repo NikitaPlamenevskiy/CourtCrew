@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  scrollbar-width: thin;
+  scrollbar-color: #ec7329 #101d2e;
 }
 
 body {
@@ -18,11 +21,22 @@ body {
 }
 
 a {
-  font-size:18px;
-  font-weight: 500;
-  color: #dadada;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
   text-decoration: none;
+  transition: 0.4s ease-in-out;
 }
 a:hover {
   color: #182c47;
+}
+
+a,
+p,
+div,
+h1,
+h2,
+h3 {
+  font-family: "Jura";
+  font-weight: 400;
 }

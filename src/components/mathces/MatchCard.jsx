@@ -1,4 +1,4 @@
-import styles from "./NewsCard.module.css";
+import styles from "./MatchCard.module.css";
 import team_1 from "../../assets/images/team_1.png";
 
 function MatchCard() {
@@ -10,7 +10,7 @@ function MatchCard() {
           style={{
             display: "flex",
             justifyContent: "space-evenly",
-            gap: "10px",
+            gap: "30px",
             alignItems: "center",
             margin: "0px auto",
           }}
@@ -19,7 +19,7 @@ function MatchCard() {
             <img className={styles.img} src={team_1} alt="" />
             <h2 className={styles.team_name}>Team_1</h2>
           </div>
-          <p>VS</p>
+          <p className={styles.team_text}>VS</p>
           <div className={styles.team_container}>
             <img className={styles.img} src={team_1} alt="" />
             <h2 className={styles.team_name}>Team_2</h2>
