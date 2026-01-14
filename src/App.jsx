@@ -8,9 +8,9 @@ function App() {
     <>
       <Header />
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-        <Matches /> 
+        <Matches />
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
