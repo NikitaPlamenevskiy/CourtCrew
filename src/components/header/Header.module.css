@@ -20,9 +20,10 @@ nav{
 
 ul {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   margin: 0px;
   padding: 0px;
+  align-items: center;
 }
 
 li {

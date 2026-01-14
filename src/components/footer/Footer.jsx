@@ -24,19 +24,19 @@ function Footer() {
             <img
               className={styles.social__icon}
               src={instagram}
-              alt="Telegram"
+              alt="Instagram"
             />
           </a>
-          <a href="#" target="_blank">
+          <a className={styles.social__link} href="#" target="_blank">
             <img
               className={styles.social__icon}
               src={linkedin}
-              alt="Telegram"
+              alt="Linkedin"
             />
           </a>
         </div>
       </div>
-      <p className={styles.text}>MAde by Plamenevskiy Nikita</p>
+      <p className={styles.text}>Made by Plamenevskiy Nikita</p>
     </footer>
   );
 }
