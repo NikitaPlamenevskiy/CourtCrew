@@ -9,7 +9,7 @@ function NotFound() {
         margin: "0px auto",
         maxWidth: "500px",
         padding: "20px",
-        backgroundColor: "#182c47",
+        background: "linear-gradient(#182c47, #161616)",
         border: "2px solid #ec7329",
         borderRadius: "10px",
         display: "flex",
@@ -33,7 +33,7 @@ function NotFound() {
           margin: "0px",
           marginBottom: "20px",
           fontSize: "26px",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         Ooooops! Page not found.
