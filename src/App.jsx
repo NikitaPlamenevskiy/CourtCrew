@@ -1,17 +1,23 @@
-import { Header } from "./components/header/Header";
-import { Matches } from "./components/mathces/Mathces";
-import { Footer } from "./components/footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { MainLayout } from "./layouts/MainLayout";
+import { Home } from "./components/home-page/Home";
+import { Matches } from "./components/matches-page/Matches";
+import { Teams } from "./components/teams-page/Teams";
+import { NotFound } from "./components/notFound-page/NotFound";
 import "./App.css";
 
 function App() {
   return (
-    <>
-      <Header />
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-        <Matches />
-      </div>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index={true} element={<Home />} />
+          <Route path="mathces" element={<Matches />} />
+          <Route path="teams" element={<Teams />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,6 @@
-import styles from "./Header.module.css";
+import { NavLink } from "react-router";
 import logo from "../../assets/images/logo.svg";
+import styles from "./Header.module.css";
 
 function Header() {
   return (
@@ -15,29 +16,11 @@ function Header() {
       >
         <img className={styles.header_logo} src={logo} alt="CourtCrew" />
         <nav>
-          <ul>
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Teams</a>
-            </li>
-            <li>
-              <a href="#">Matches</a>
-            </li>
-            <li>
-              <a href="#">Profile</a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a href="#">Log in</a>
-            </li>
-            |
-            <li>
-              <a href="#">Register</a>
-            </li>
-          </ul>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
+          <NavLink to="teams">Teams</NavLink>
+          <NavLink to="mathces">Mathces</NavLink>
         </nav>
       </div>
     </header>
