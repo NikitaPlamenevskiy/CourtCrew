@@ -1,7 +1,5 @@
 .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
+  position: top;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 20px;

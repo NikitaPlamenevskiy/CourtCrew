@@ -4,7 +4,6 @@ import { Home } from "./components/home-page/Home";
 import { Matches } from "./components/matches-page/Matches";
 import { Teams } from "./components/teams-page/Teams";
 import { NotFound } from "./components/notFound-page/NotFound";
-import "./App.css";
 
 function App() {
   return (

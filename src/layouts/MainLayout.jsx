@@ -6,7 +6,14 @@ function MainLayout() {
   return (
     <>
       <Header />
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div
+        style={{
+          maxWidth: "1220px",
+          margin: "0px auto",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      >
         <Outlet />
       </div>
       <Footer />

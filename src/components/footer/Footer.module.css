@@ -1,7 +1,5 @@
 .footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #ec7329;
@@ -11,6 +9,7 @@
   max-width: 126px;
   margin: 0px auto;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .socials__title {
@@ -31,7 +30,7 @@
 }
 
 .text {
-  margin: 0px;
+  text-align: center;
   font-size: 18px;
   font-weight: 600;
 }
