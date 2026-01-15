@@ -8,7 +8,7 @@ function MainLayout() {
       <Header />
       <div
         style={{
-          maxWidth: "1220px",
+          maxWidth: "1280px",
           margin: "0px auto",
           marginTop: "20px",
           marginBottom: "20px",
