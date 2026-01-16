@@ -10,7 +10,7 @@ function PlayerCard() {
       <img className={styles.ball_bl} src={ball} alt="ball" />
       <img className={styles.ball_br} src={ball} alt="ball" />
       <div className={styles.card__info}>
-        <div className={styles.card__number}>7</div>
+        <p className={styles.card__number}>7</p>
         <img className={styles.card__photo} src={photo} alt="player photo" />
         <p className={styles.card__name}>Michael Jordan</p>
       </div>
