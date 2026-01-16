@@ -1,0 +1,75 @@
+.card {
+  position: relative;
+  max-width: 300px;
+  flex-shrink: 0;
+  background: linear-gradient(#182c47, #161616);
+  border: 2px solid #ec7329;
+  border-radius: 20px;
+  padding: 30px;
+  align-items: center;
+}
+
+.ball_tl {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.ball_tr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.ball_bl {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.ball_br {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.card__info {
+  position: relative;
+  height: auto;
+  background-color: #ec7329;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.card__number {
+  position: absolute;
+  max-width: 25px;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding-right: 11px;
+  padding-left: 11px;
+  right: 0;
+  color: #101d2e;
+  font-size: 2rem;
+  background-color: #ec7329;
+  border-radius: 50%;
+}
+
+.card__photo {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card__name {
+  margin: 0px;
+  padding: 10px;
+  background-color: #ec7329;
+  border-radius: 0px 0px 10px 10px;
+  font-size: 2rem;
+  text-align: center;
+}

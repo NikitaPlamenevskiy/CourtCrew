@@ -1,5 +1,5 @@
 import { MatchCard } from "./MatchCard";
-import styles from "./Matches.module.css";
+import styles from "./MatchesBlock.module.css";
 
 function Matches() {
   return (

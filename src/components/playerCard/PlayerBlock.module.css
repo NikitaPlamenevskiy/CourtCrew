@@ -1,0 +1,13 @@
+.title {
+  margin-bottom: 16px;
+  text-align: left;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cards_container {
+  display: flex;
+  gap: 20px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
