@@ -4,6 +4,8 @@ function Home() {
   return (
     <>
       <Matches />
+      <Matches />
+      <Matches />
     </>
   );
 }
