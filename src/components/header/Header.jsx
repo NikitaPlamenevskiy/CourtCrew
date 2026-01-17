@@ -9,7 +9,7 @@ function Header() {
         style={{
           maxWidth: "1280px",
           display: "flex",
-          gap: "100px",
+          justifyContent: "space-between",
           margin: "0 auto",
           alignItems: "center",
         }}
@@ -22,6 +22,14 @@ function Header() {
           <NavLink to="teams">Teams</NavLink>
           <NavLink to="mathces">Mathces</NavLink>
         </nav>
+        <div className={styles.container}>
+          <input
+            type="checkbox"
+            id="burgerCheckbox"
+            className={styles.burgerCheckbox}
+          />
+          <label className={styles.burger} for="burgerCheckbox"></label>
+        </div>
       </div>
     </header>
   );
