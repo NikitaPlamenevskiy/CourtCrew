@@ -1,7 +1,7 @@
 import { MatchCard } from "./MatchCard";
-import styles from "./Matches.module.css";
+import styles from "./MatchesBlock.module.css";
 
-function Matches() {
+function MatchesBlock() {
   return (
     <>
       <h1 className={styles.title}>Matches</h1>
@@ -18,4 +18,4 @@ function Matches() {
   );
 }
 
-export { Matches };
+export { MatchesBlock };

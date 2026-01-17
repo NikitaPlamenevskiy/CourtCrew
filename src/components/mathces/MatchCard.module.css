@@ -9,6 +9,7 @@
   border: 2px solid #ec7329;
   background: linear-gradient(#182c47, #161616);
   border-radius: 10px;
+  text-align: center;
 }
 
 .date {

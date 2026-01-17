@@ -1,9 +1,11 @@
-import { Matches } from "../mathces/MathcesBlock";
+import { MatchesBlock } from "../mathces/MathcesBlock";
+import { PlayerBlock } from "../playerCard/PlayerBlock";
 
 function Home() {
   return (
     <>
-      <Matches />
+      <MatchesBlock />
+      <PlayerBlock />
     </>
   );
 }

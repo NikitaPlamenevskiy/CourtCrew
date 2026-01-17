@@ -13,13 +13,10 @@
 
   background-image: url("./assets/images/Background.svg");
   background-repeat: no-repeat;
-  background-size: 200vh;
+  background-size: cover;
   background-position: center;
-  background-position-y: -50px;
-  
-  padding-top: 110px;
-  padding-bottom: 170px;
 
+  padding-bottom: 145px;
 }
 
 body {
@@ -28,13 +25,18 @@ body {
 
 a {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 300;
   color: #ffffff;
   text-decoration: none;
   transition: 0.4s ease-in-out;
 }
 a:hover {
   color: #182c47;
+}
+
+a.active {
+  color: #182c47;
+  text-decoration: underline #182c47;
 }
 
 a,
@@ -45,4 +47,10 @@ h2,
 h3 {
   font-family: "Jura";
   font-weight: 400;
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    padding-bottom: 0px;
+  }
 }
