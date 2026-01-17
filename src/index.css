@@ -48,3 +48,9 @@ h3 {
   font-family: "Jura";
   font-weight: 400;
 }
+
+@media screen and (max-width: 400px) {
+  :root {
+    padding-bottom: 0px;
+  }
+}

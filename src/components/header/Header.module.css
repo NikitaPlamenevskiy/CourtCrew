@@ -18,3 +18,10 @@ nav {
   gap: 30px;
   align-items: center;
 }
+
+
+@media screen and (max-width: 400px) {
+  nav{
+    display: none;
+  }
+}
