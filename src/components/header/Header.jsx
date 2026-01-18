@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import { Burger } from "../burger/Burger";
 import logo from "../../assets/images/logo.svg";
 import styles from "./Header.module.css";
 
@@ -22,14 +23,7 @@ function Header() {
           <NavLink to="teams">Teams</NavLink>
           <NavLink to="mathces">Mathces</NavLink>
         </nav>
-        <div className={styles.container}>
-          <input
-            type="checkbox"
-            id="burgerCheckbox"
-            className={styles.burgerCheckbox}
-          />
-          <label className={styles.burger} for="burgerCheckbox"></label>
-        </div>
+        <Burger />
       </div>
     </header>
   );
