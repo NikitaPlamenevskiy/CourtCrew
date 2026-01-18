@@ -51,6 +51,9 @@ h3 {
 
 @media screen and (max-width: 400px) {
   :root {
+    background: linear-gradient(#182c47, #161616);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-bottom: 0px;
   }
 }
