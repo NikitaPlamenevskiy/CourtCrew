@@ -1,0 +1,133 @@
+.burger {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+  .burger {
+    margin-right: 10px;
+    position: relative;
+    z-index: 15;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(#182c47, #161616);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .burger__line {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: #ec7329;
+    transition: background 0.3s;
+  }
+
+  .burger__line::before,
+  .burger__line::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ec7329;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+  }
+
+  .burger__line::before {
+    top: 8px;
+  }
+
+  .burger__line::after {
+    bottom: 8px;
+  }
+
+  .burger.active .burger__line {
+    background: transparent;
+  }
+
+  .burger.burger.active .burger__line::before {
+    top: 0;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .burger.burger.active .burger__line::after {
+    top: 0;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  .menu {
+    margin-top: 60px;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(#182c47, #161616);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+
+  .menu_open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu_close {
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+  .menu__content {
+    position: fixed;
+    top: 150px;
+
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .socials {
+    position: fixed;
+    bottom: 0;
+    max-width: 100%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .socials__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0px;
+    margin-bottom: 16px;
+  }
+
+  .icons__container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .social__icon {
+    width: auto;
+    height: 24px;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
