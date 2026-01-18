@@ -10,6 +10,7 @@ function MainLayout() {
       <div
         style={{
           maxWidth: "1280px",
+          minHeight: "100vh",
           margin: "0px auto",
           marginTop: "20px",
           marginBottom: "20px",

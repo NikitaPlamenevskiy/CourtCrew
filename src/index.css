@@ -15,8 +15,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  padding-bottom: 145px;
 }
 
 body {
@@ -56,4 +54,9 @@ h3 {
     background-size: cover;
     padding-bottom: 0px;
   }
+
+  a.active {
+  color: #ec7329;
+  text-decoration: underline #182c47;
+}
 }

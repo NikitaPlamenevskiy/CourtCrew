@@ -1,9 +1,11 @@
 .header {
-  position: top;
-  padding-top: 5px;
-  padding-bottom: 5px;
   padding-left: 20px;
   padding-right: 20px;
+  position: top;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #ec7329;
 }
 
@@ -13,19 +15,38 @@
 
 .header_logo {
   width: auto;
-  height: 100px;
+  height: 80px;
 }
 
-nav {
-  margin-left: 30px;
+.navigation {
   width: 100%;
+  margin-left: 30px;
   display: flex;
   gap: 30px;
   align-items: center;
 }
 
 @media screen and (max-width: 400px) {
-  nav {
+  .header {
+    padding: 0px;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ec7329;
+  }
+
+  .header_logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    width: auto;
+    height: 50px;
+  }
+  .navigation {
     display: none;
   }
 }
