@@ -12,7 +12,7 @@ function Menu() {
           <img className={styles.mobile__icon} src={matches} alt="mathces" />
         </NavLink>
         <div className={styles.mobile__line}></div>
-        <NavLink to="/">
+        <NavLink to="create">
           <img
             className={styles.mobile__icon}
             src={createMatch}

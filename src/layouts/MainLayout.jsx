@@ -2,20 +2,13 @@ import { Outlet } from "react-router";
 import { Header } from "../components/header/Header";
 import { Footer } from "../components/footer/Footer";
 import { Menu } from "../components/menu/Menu";
+import styles from "./MainLayout.module.css";
 
 function MainLayout() {
   return (
     <>
       <Header />
-      <div
-        style={{
-          maxWidth: "1280px",
-          minHeight: "100vh",
-          margin: "0px auto",
-          marginTop: "20px",
-          marginBottom: "20px",
-        }}
-      >
+      <div className={styles.wrapper}>
         <Outlet />
       </div>
       <Menu />

@@ -42,9 +42,10 @@ p,
 div,
 h1,
 h2,
-h3 {
+h3,
+input,
+label {
   font-family: "Jura";
-  font-weight: 400;
 }
 
 @media screen and (max-width: 400px) {
@@ -52,11 +53,10 @@ h3 {
     background: linear-gradient(#182c47, #161616);
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 0px;
   }
 
   a.active {
-  color: #ec7329;
-  text-decoration: underline #182c47;
-}
+    color: #ec7329;
+    text-decoration: underline #182c47;
+  }
 }
