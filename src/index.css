@@ -48,7 +48,7 @@ label {
   font-family: "Jura";
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 425px) {
   :root {
     background: linear-gradient(#182c47, #161616);
     background-repeat: no-repeat;
