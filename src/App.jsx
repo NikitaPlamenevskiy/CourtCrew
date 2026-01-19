@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import { MainLayout } from "./layouts/MainLayout";
-import { Home } from "./components/home-page/Home";
-import { Matches } from "./components/matches-page/Matches";
-import { Teams } from "./components/teams-page/Teams";
-import { NotFound } from "./components/notFound-page/NotFound";
-import { MatchCreation } from "./components/match_creation page/MatchCreation";
+
+import { Teams } from "./Pages/Teams/Teams";
+import { MatchCreation } from "./Pages/MatchCreation/MatchCreation";
+import { Home } from "./Pages/Home/Home";
+import { NotFound } from "./Pages/NotFound/NotFound";
+import { Matches } from "./Pages/Matches/Matches";
 
 function App() {
   return (

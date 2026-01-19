@@ -1,6 +1,5 @@
 import { NavLink } from "react-router";
 import imgNotFound from "../../assets/images/pageNotFound.png";
-import { Footer } from "../footer/Footer";
 
 function NotFound() {
   return (
@@ -20,7 +19,7 @@ function NotFound() {
     >
       <img
         style={{
-          maxWidth: "400px",
+          maxWidth: "100%",
           height: "auto",
         }}
         src={imgNotFound}
