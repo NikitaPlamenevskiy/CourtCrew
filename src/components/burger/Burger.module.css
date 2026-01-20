@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 430px) {
   .burger {
-    margin-right: 10px;
+
     position: relative;
     z-index: 15;
     width: 40px;

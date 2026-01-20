@@ -15,9 +15,8 @@ function Header() {
           <NavLink to="teams">Teams</NavLink>
           <NavLink to="mathces">Mathces</NavLink>
         </nav>
+        <Burger />
       </div>
-
-      <Burger />
     </header>
   );
 }
