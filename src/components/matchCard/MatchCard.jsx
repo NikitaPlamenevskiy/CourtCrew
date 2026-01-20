@@ -16,9 +16,7 @@ const STATUS_COLORS = {
 function MatchCard({ match }) {
   function defineColorStatus() {
     if (!match) return;
-
     const status = match.status;
-
     return STATUS_COLORS[status];
   }
 
@@ -42,7 +40,11 @@ function MatchCard({ match }) {
           <h2 className={styles.date}>{match.date}</h2>
           <div className={styles.wrapper}>
             <div className={styles.wrapper}>
-              <img className={styles.team__img} src={team_1} alt="Team" />
+              <img
+                className={styles.team__img}
+                src={team_1}
+                alt={match.teamOne}
+              />
               <h3 className={styles.team__name}>{match.teamOne}</h3>
             </div>
             <p
@@ -55,7 +57,11 @@ function MatchCard({ match }) {
             </p>
             <span className={styles.line}></span>
             <div className={styles.wrapper}>
-              <img className={styles.team__img} src={team_1} alt="Team" />
+              <img
+                className={styles.team__img}
+                src={team_1}
+                alt={match.teamTwo}
+              />
               <h3 className={styles.team__name}>{match.teamTwo}</h3>
             </div>
             <p

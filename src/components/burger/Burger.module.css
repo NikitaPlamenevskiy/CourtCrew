@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 430px) {
   .burger {
-    margin-right: 10px;
+
     position: relative;
     z-index: 15;
     width: 40px;
@@ -55,12 +55,12 @@
 
   .burger.burger.active .burger__line::before {
     top: 0;
-    transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(-45deg);
   }
 
   .burger.burger.active .burger__line::after {
     top: 0;
-    transform: translateX(-50%) rotate(-45deg);
+    transform: translateX(-50%) rotate(45deg);
   }
 
   .menu {
