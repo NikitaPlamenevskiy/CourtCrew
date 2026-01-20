@@ -55,12 +55,12 @@
 
   .burger.burger.active .burger__line::before {
     top: 0;
-    transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(-45deg);
   }
 
   .burger.burger.active .burger__line::after {
     top: 0;
-    transform: translateX(-50%) rotate(-45deg);
+    transform: translateX(-50%) rotate(45deg);
   }
 
   .menu {
