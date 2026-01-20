@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 430px) {
   .mobile__menu {
     position: sticky;
     bottom: 0;
