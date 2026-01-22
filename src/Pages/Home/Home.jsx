@@ -1,6 +1,5 @@
 // import { supabase } from "../../services/supabase/supabase";
 // import { useEffect, useState } from "react";
-
 import { MatchesBlock } from "../../components/matchSlider/MathcesBlock";
 import { PlayerBlock } from "../../components/playerCard/PlayerBlock";
 

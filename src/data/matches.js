@@ -5,7 +5,7 @@ const matches = [
     date: "10.05.2025",
     teamOne: "Houston Rockets",
     teamOneScore: 69,
-    teamTwo: "San-Antoni Spurs",
+    teamTwo: "San-Antonio Spurs",
     teamTwoScore: 60,
   },
   {
@@ -14,7 +14,7 @@ const matches = [
     date: "10.01.2025",
     teamOne: "Houston Rockets",
     teamOneScore: 30,
-    teamTwo: "San-Antoni Spurs",
+    teamTwo: "San-Antonio Spurs",
     teamTwoScore: 30,
   },
   {
@@ -23,7 +23,7 @@ const matches = [
     date: "11.05.2025",
     teamOne: "Houston Rockets",
     teamOneScore: 45,
-    teamTwo: "San-Antoni Spurs",
+    teamTwo: "San-Antonio Spurs",
     teamTwoScore: 20,
   },
   {
@@ -32,7 +32,7 @@ const matches = [
     date: "11.05.2025",
     teamOne: "Houston Rockets",
     teamOneScore: 3,
-    teamTwo: "San-Antoni Spurs",
+    teamTwo: "San-Antonio Spurs",
     teamTwoScore: 10,
   },
      {
@@ -41,7 +41,7 @@ const matches = [
     date: "11.05.2025",
     teamOne: "Houston Rockets",
     teamOneScore: 54,
-    teamTwo: "San-Antoni Spurs",
+    teamTwo: "San-Antonio Spurs",
     teamTwoScore: 53,
   },
 ];
