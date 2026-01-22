@@ -23,7 +23,7 @@ function Match() {
           >{`${match.teamOneScore} : ${match.teamTwoScore}`}</p>
         </div>
         <div className={styles.wrapper}>
-          <img className={styles.team__img} src={team_1} alt="TeamOne" />
+          <img className={styles.team__img} src={team_1} alt="TeamTwo" />
           <h2 className={styles.team__name}>{match.teamTwo}</h2>
         </div>
         <span className={styles.line}></span>

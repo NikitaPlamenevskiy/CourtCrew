@@ -6,7 +6,6 @@
   flex-wrap: wrap;
   row-gap: 20px;
   justify-content: space-between;
-  align-items: center;
 }
 
 .wrapper {
@@ -29,7 +28,7 @@
 }
 
 .team__img {
-  width: 60px;
+  max-width: 60px;
   height: auto;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .line_card {
-  height:80px;
+  height: 80px;
   border: 1px solid #ffffff8a;
   border-radius: 10px;
 }
@@ -71,7 +70,7 @@
   font-weight: 700;
 }
 
-.team{
+.team {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -103,4 +102,24 @@
   margin: 0px;
   font-size: 24px;
   font-weight: 700;
+}
+
+@media screen and (max-width: 375px) {
+  .team__name {
+    margin: 0px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .status {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .score {
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 700;
+  }
 }
