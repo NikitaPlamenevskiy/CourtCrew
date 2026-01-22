@@ -5,7 +5,7 @@ import styles from "./MatchesBlock.module.css";
 
 function MatchesBlock() {
   const navigate = useNavigate();
-  console.log(navigate);
+
   return (
     <>
       <h1 className={styles.title}>Matches</h1>
