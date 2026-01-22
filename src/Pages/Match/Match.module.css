@@ -104,10 +104,10 @@
   font-weight: 700;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 390px) {
   .team__name {
     margin: 0px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
   }
 
@@ -120,6 +120,26 @@
   .score {
     margin: 0px;
     font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .team__name {
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .status {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .score {
+    margin: 0px;
+    font-size: 16px;
     font-weight: 700;
   }
 }
