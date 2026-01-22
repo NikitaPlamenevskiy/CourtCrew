@@ -13,7 +13,7 @@ function Header() {
             Home
           </NavLink>
           <NavLink to="teams">Teams</NavLink>
-          <NavLink to="mathces">Mathces</NavLink>
+          <NavLink to="matches">Mathces</NavLink>
         </nav>
         <Burger />
       </div>
