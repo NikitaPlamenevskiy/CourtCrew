@@ -13,7 +13,7 @@ const STATUS_COLORS = {
   Ended: "#D74848",
 };
 
-function MatchCard({ match }) {
+function MatchCard({ match, onClick }) {
   function defineColorStatus() {
     if (!match) return;
     const status = match.status;
@@ -28,7 +28,7 @@ function MatchCard({ match }) {
 
   return (
     <>
-      <div className={styles.card}>
+      <div className={styles.card} onClick={onClick}>
         <div className={styles.wrapper}>
           <div className={styles.wrapper}>
             <h1 className={styles.status}>{match.status}</h1>

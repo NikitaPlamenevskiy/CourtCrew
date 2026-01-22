@@ -28,7 +28,7 @@ function Burger() {
         >
           <NavLink to="/">Home</NavLink>
           <NavLink to="teams">Teams</NavLink>
-          <NavLink to="mathces">Mathces</NavLink>
+          <NavLink to="matches">Mathces</NavLink>
           <NavLink to="login">Login</NavLink>
           <NavLink to="registration">Register</NavLink>
         </nav>
