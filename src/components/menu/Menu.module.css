@@ -4,19 +4,18 @@
 
 @media screen and (max-width: 430px) {
   .mobile__menu {
-    width: 100%;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     padding-top: 11px;
     padding-bottom: 11px;
+    padding-left: 40px;
+    padding-right: 40px;
     display: block;
     background-color: #ec7329;
     align-items: center;
   }
 
   .container {
-    padding-left: 40px;
-    padding-right: 40px;
     margin: 0px;
     display: flex;
     flex-wrap: nowrap;
