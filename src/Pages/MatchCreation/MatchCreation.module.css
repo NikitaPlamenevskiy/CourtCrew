@@ -17,10 +17,48 @@
   margin-top: 20px;
   margin-left: 20px;
   margin-right: 20px;
+  align-items: center;
 }
 
 .inputBlock {
   width: 100%;
+}
+
+.users__list {
+  display: none;
+  background: linear-gradient(#182c47, #161616);
+}
+
+.open {
+  overflow: scroll;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 100vh;
+  width: 100%;
+  margin: 0px auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.player__img {
+  width: 55px;
+  height: 55px;
+  border: 2px solid #ec7329;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.player__name {
+  margin: 0px;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 label {
