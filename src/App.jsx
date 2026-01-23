@@ -1,4 +1,6 @@
+import { supabase } from "./services/supabase/supabase";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { MainLayout } from "./layouts/MainLayout";
 import { Teams } from "./Pages/Teams/Teams";
 import { MatchCreation } from "./Pages/MatchCreation/MatchCreation";
@@ -8,6 +10,16 @@ import { Matches } from "./Pages/Matches/Matches";
 import { Match } from "./Pages/Match/Match";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function getUsers() {
+      const { data } = await supabase.from("users").select();
+      setUsers(data);
+    }
+    getUsers();
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -18,7 +30,7 @@ function App() {
             <Route path=":id" element={<Match />} />
           </Route>
           <Route path="teams" element={<Teams />} />
-          <Route path="create" element={<MatchCreation />} />
+          <Route path="create" element={<MatchCreation users={users} />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
