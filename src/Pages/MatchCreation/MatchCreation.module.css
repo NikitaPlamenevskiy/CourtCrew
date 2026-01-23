@@ -25,21 +25,27 @@
 }
 
 .users__list {
+
   display: none;
   background: linear-gradient(#182c47, #161616);
+  text-align: center;
 }
 
 .open {
-
-  padding-top: 60px;
-  padding-bottom: 60px;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
   width: 100%;
-  margin: 0px auto;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.userScroll {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
 }
 
 .checkbox {
@@ -47,6 +53,11 @@
   height: 20px;
 }
 
+.users__list button {
+  width: auto;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 .player__img {
   width: 55px;
   height: 55px;

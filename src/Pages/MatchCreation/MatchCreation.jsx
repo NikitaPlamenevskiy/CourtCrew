@@ -30,15 +30,9 @@ function MatchCreation({ users }) {
           <div
             className={`${styles.users__list} ${open ? `${styles.open}` : ""}`}
           >
-            <div
-              style={{
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <h1>Team one</h1>
-              <span>0 from 5</span>
+            <h1>Team one</h1>
+            <span>0 from 5</span>
+            <div className={styles.userScroll}>
               {users.map((user) => {
                 return (
                   <div className={styles.wrapper} key={user.id}>
@@ -58,14 +52,14 @@ function MatchCreation({ users }) {
                   </div>
                 );
               })}
-              <button
-                type="button"
-                className={styles.button}
-                onClick={toggleModal}
-              >
-                Add
-              </button>
             </div>
+            <button
+              type="button"
+              className={styles.button}
+              onClick={toggleModal}
+            >
+              Add
+            </button>
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-one">Team one</label>
@@ -78,9 +72,48 @@ function MatchCreation({ users }) {
               <img src={plus} alt="Add" />
             </button>
           </div>
+          <div
+            className={`${styles.users__list} ${open ? `${styles.open}` : ""}`}
+          >
+            <h1>Team two</h1>
+            <span>0 from 5</span>
+            <div className={styles.userScroll}>
+              {users.map((user) => {
+                return (
+                  <div className={styles.wrapper} key={user.id}>
+                    <input
+                      className={styles.checkbox}
+                      type="checkbox"
+                      name={user.id}
+                    />
+                    <img
+                      className={styles.player__img}
+                      src={photo}
+                      alt={user.name}
+                    />
+                    <p className={styles.player__name}>
+                      {user.name} {user.surname}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              type="button"
+              className={styles.button}
+              onClick={toggleModal}
+            >
+              Add
+            </button>
+          </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
-            <button className={styles.button}>
+            <button
+              className={styles.button}
+              onClick={(event) => {
+                toggleModal(event);
+              }}
+            >
               <img src={plus} alt="Add" />
             </button>
           </div>
