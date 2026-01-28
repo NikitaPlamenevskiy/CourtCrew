@@ -6,7 +6,6 @@ import styles from "./MatchCreation.module.css";
 function MatchCreation({ users }) {
   const [open, setOpen] = useState(false);
   const [teamOne, setTeamOne] = useState([]);
-  console.log(teamOne[1]);
 
   function toggleModal(event) {
     event.preventDefault();
@@ -48,7 +47,6 @@ function MatchCreation({ users }) {
                     <input
                       className={styles.checkbox}
                       type="checkbox"
-                      id={user.id}
                       name="player"
                       checked={teamOne.some((player) => player.id === user.id)}
                       onChange={(event) => addPlayersToTeam(event, user)}

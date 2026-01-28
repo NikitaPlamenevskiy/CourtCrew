@@ -25,7 +25,6 @@
 }
 
 .users__list {
-
   display: none;
   background: linear-gradient(#182c47, #161616);
   text-align: center;
@@ -50,6 +49,8 @@
 }
 
 .checkbox {
+  color: #ffff;
+  accent-color: #ec7329;
   width: 20px;
   height: 20px;
 }
