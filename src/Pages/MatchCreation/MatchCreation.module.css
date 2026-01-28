@@ -45,6 +45,7 @@
 .userScroll {
   flex: 1;
   overflow-y: auto;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 

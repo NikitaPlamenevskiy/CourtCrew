@@ -5,13 +5,22 @@ import styles from "./MatchCreation.module.css";
 
 function MatchCreation({ users }) {
   const [open, setOpen] = useState(false);
-  console.log(open);
-  console.log(users);
+  const [teamOne, setTeamOne] = useState([]);
+  console.log(teamOne);
 
   function toggleModal(event) {
     event.preventDefault();
-    console.log("click");
-    open ? setOpen(false) : setOpen(true);
+    setOpen((prev) => !prev);
+  }
+
+  function addPlayersToTeam(event) {
+    setTeamOne((prev) => {
+      if (event.target.checked) {
+        return [...prev, Number(event.target.id)];
+      } else {
+        return prev.filter((playerId) => playerId !== Number(event.target.id));
+      }
+    });
   }
 
   return (
@@ -31,7 +40,7 @@ function MatchCreation({ users }) {
             className={`${styles.users__list} ${open ? `${styles.open}` : ""}`}
           >
             <h1>Team one</h1>
-            <span>0 from 5</span>
+            <span>{teamOne.length} from 5</span>
             <div className={styles.userScroll}>
               {users.map((user) => {
                 return (
@@ -39,7 +48,10 @@ function MatchCreation({ users }) {
                     <input
                       className={styles.checkbox}
                       type="checkbox"
-                      name={user.id}
+                      id={user.id}
+                      name="player"
+                      checked={teamOne.includes(user.id)}
+                      onChange={(event) => addPlayersToTeam(event)}
                     />
                     <img
                       className={styles.player__img}
@@ -72,7 +84,7 @@ function MatchCreation({ users }) {
               <img src={plus} alt="Add" />
             </button>
           </div>
-          <div
+          {/* <div
             className={`${styles.users__list} ${open ? `${styles.open}` : ""}`}
           >
             <h1>Team two</h1>
@@ -84,7 +96,7 @@ function MatchCreation({ users }) {
                     <input
                       className={styles.checkbox}
                       type="checkbox"
-                      name={user.id}
+                      name="player"
                     />
                     <img
                       className={styles.player__img}
@@ -105,7 +117,7 @@ function MatchCreation({ users }) {
             >
               Add
             </button>
-          </div>
+          </div> */}
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
             <button
