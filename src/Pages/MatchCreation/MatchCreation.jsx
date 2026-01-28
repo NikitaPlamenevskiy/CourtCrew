@@ -18,6 +18,7 @@ function MatchCreation({ users }) {
   });
 
   function toggleModal(event, team) {
+    event.preventDefault();
     if (team === "teamOne") {
       setOpenTeamOne((prev) => !prev);
     } else if (team === "teamTwo") {
