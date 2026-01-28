@@ -4,21 +4,44 @@ import photo from "../../assets/images/playerCard.jpg";
 import styles from "./MatchCreation.module.css";
 
 function MatchCreation({ users }) {
-  const [open, setOpen] = useState(false);
+  const [openTeamOne, setOpenTeamOne] = useState(false);
+  const [openTeamTwo, setOpenTeamTwo] = useState(false);
   const [teamOne, setTeamOne] = useState([]);
-  console.log(teamOne);
+  const [teamTwo, setTeamTwo] = useState([]);
 
-  function toggleModal(event) {
+  const availableTeamOne = users.filter((user) => {
+    return !teamTwo.some((player) => player.id === user.id);
+  });
+
+  const availableTeamTwo = users.filter((user) => {
+    return !teamOne.some((player) => player.id === user.id);
+  });
+
+  function toggleModal(event, team) {
     event.preventDefault();
-    setOpen((prev) => !prev);
+    if (team === "teamOne") {
+      setOpenTeamOne((prev) => !prev);
+    } else if (team === "teamTwo") {
+      setOpenTeamTwo((prev) => !prev);
+    }
   }
 
-  function addPlayersToTeam(event) {
+  function addPlayersToTeam(event, user) {
     setTeamOne((prev) => {
       if (event.target.checked) {
-        return [...prev, Number(event.target.id)];
+        return [...prev, user];
       } else {
-        return prev.filter((playerId) => playerId !== Number(event.target.id));
+        return prev.filter((player) => player.id !== user.id);
+      }
+    });
+  }
+
+  function addPlayersToTeamTwo(event, user) {
+    setTeamTwo((prev) => {
+      if (event.target.checked) {
+        return [...prev, user];
+      } else {
+        return prev.filter((player) => player.id !== user.id);
       }
     });
   }
@@ -37,21 +60,24 @@ function MatchCreation({ users }) {
             <input type="date" name="date" />
           </div>
           <div
-            className={`${styles.users__list} ${open ? `${styles.open}` : ""}`}
+            className={`${styles.users__list} ${openTeamOne ? `${styles.open}` : ""}`}
           >
             <h1>Team one</h1>
             <span>{teamOne.length} from 5</span>
             <div className={styles.userScroll}>
-              {users.map((user) => {
+              {availableTeamOne.map((user) => {
                 return (
                   <div className={styles.wrapper} key={user.id}>
                     <input
                       className={styles.checkbox}
                       type="checkbox"
-                      id={user.id}
                       name="player"
-                      checked={teamOne.includes(user.id)}
-                      onChange={(event) => addPlayersToTeam(event)}
+                      checked={teamOne.some((player) => player.id === user.id)}
+                      onChange={(event) => addPlayersToTeam(event, user)}
+                      disabled={
+                        teamOne.length === 5 &&
+                        !teamOne.some((player) => player.id === user.id)
+                      }
                     />
                     <img
                       className={styles.player__img}
@@ -68,9 +94,11 @@ function MatchCreation({ users }) {
             <button
               type="button"
               className={styles.button}
-              onClick={toggleModal}
+              onClick={(event) => {
+                toggleModal(event, "teamOne");
+              }}
             >
-              Add
+              Close
             </button>
           </div>
           <div className={styles.inputBlock}>
@@ -78,25 +106,31 @@ function MatchCreation({ users }) {
             <button
               className={styles.button}
               onClick={(event) => {
-                toggleModal(event);
+                toggleModal(event, "teamOne");
               }}
             >
               <img src={plus} alt="Add" />
             </button>
           </div>
-          {/* <div
-            className={`${styles.users__list} ${open ? `${styles.open}` : ""}`}
+          <div
+            className={`${styles.users__list} ${openTeamTwo ? `${styles.open}` : ""}`}
           >
             <h1>Team two</h1>
-            <span>0 from 5</span>
+            <span>{teamTwo.length} from 5</span>
             <div className={styles.userScroll}>
-              {users.map((user) => {
+              {availableTeamTwo.map((user) => {
                 return (
                   <div className={styles.wrapper} key={user.id}>
                     <input
                       className={styles.checkbox}
                       type="checkbox"
                       name="player"
+                      checked={teamTwo.some((player) => player.id === user.id)}
+                      onChange={(event) => addPlayersToTeamTwo(event, user)}
+                      disabled={
+                        teamTwo.length === 5 &&
+                        !teamTwo.some((player) => player.id === user.id)
+                      }
                     />
                     <img
                       className={styles.player__img}
@@ -113,17 +147,19 @@ function MatchCreation({ users }) {
             <button
               type="button"
               className={styles.button}
-              onClick={toggleModal}
+              onClick={(event) => {
+                toggleModal(event, "teamTwo");
+              }}
             >
-              Add
+              Close
             </button>
-          </div> */}
+          </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
             <button
               className={styles.button}
               onClick={(event) => {
-                toggleModal(event);
+                toggleModal(event, "teamTwo");
               }}
             >
               <img src={plus} alt="Add" />
