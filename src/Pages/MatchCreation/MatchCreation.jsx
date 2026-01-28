@@ -6,19 +6,19 @@ import styles from "./MatchCreation.module.css";
 function MatchCreation({ users }) {
   const [open, setOpen] = useState(false);
   const [teamOne, setTeamOne] = useState([]);
-  console.log(teamOne);
+  console.log(teamOne[1]);
 
   function toggleModal(event) {
     event.preventDefault();
     setOpen((prev) => !prev);
   }
 
-  function addPlayersToTeam(event) {
+  function addPlayersToTeam(event, user) {
     setTeamOne((prev) => {
       if (event.target.checked) {
-        return [...prev, Number(event.target.id)];
+        return [...prev, user];
       } else {
-        return prev.filter((playerId) => playerId !== Number(event.target.id));
+        return prev.filter((player) => player.id !== user.id);
       }
     });
   }
@@ -50,8 +50,12 @@ function MatchCreation({ users }) {
                       type="checkbox"
                       id={user.id}
                       name="player"
-                      checked={teamOne.includes(user.id)}
-                      onChange={(event) => addPlayersToTeam(event)}
+                      checked={teamOne.some((player) => player.id === user.id)}
+                      onChange={(event) => addPlayersToTeam(event, user)}
+                      disabled={
+                        teamOne.length === 5 &&
+                        !teamOne.some((player) => player.id === user.id)
+                      }
                     />
                     <img
                       className={styles.player__img}
