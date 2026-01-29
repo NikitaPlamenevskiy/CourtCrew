@@ -9,8 +9,6 @@ function MatchCreation({ users }) {
   const [teamOne, setTeamOne] = useState([]);
   const [teamTwo, setTeamTwo] = useState([]);
 
-  console.log(teamOne);
-
   const availableTeamOne = users.filter((user) => {
     return !teamTwo.some((player) => player.id === user.id);
   });
@@ -145,7 +143,7 @@ function MatchCreation({ users }) {
                 toggleModal(event, "teamOne");
               }}
             >
-              <img src={plus} alt="Add" />
+              {!teamOne.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
           <div
@@ -231,10 +229,9 @@ function MatchCreation({ users }) {
                 toggleModal(event, "teamTwo");
               }}
             >
-              <img src={plus} alt="Add" />
+              {!teamTwo.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
-
           <input type="submit" value="Create" disabled />
         </div>
       </form>
