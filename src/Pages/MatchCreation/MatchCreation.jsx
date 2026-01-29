@@ -47,18 +47,34 @@ function MatchCreation({ users }) {
     }
   }
 
+  function submitForm(formData) {
+    const matchName = formData.get("matchName");
+    const matchDate = formData.get("matchDate");
+
+    const date = new Date(matchDate).toString();
+
+    const match = {
+      matchName: matchName,
+      matchDate: Date.parse(date),
+      teamOne: teamOne,
+      teamTwo: teamTwo,
+    };
+
+    console.log(match);
+  }
+
   return (
     <>
       <h1 className={styles.title}>Match creation</h1>
-      <form action="">
+      <form action={submitForm}>
         <div className={styles.wrapper}>
           <div className={styles.inputBlock}>
-            <label htmlFor="name">Match name</label>
-            <input type="text" name="name" placeholder="Match name" />
+            <label>Match name</label>
+            <input type="text" name="matchName" placeholder="Match name" />
           </div>
           <div className={styles.inputBlock}>
-            <label htmlFor="date">Match date</label>
-            <input type="date" name="date" />
+            <label>Match date</label>
+            <input type="date" name="matchDate" />
           </div>
           <div
             className={`${styles.users__list} ${openTeamOne ? `${styles.open}` : ""}`}
@@ -232,7 +248,7 @@ function MatchCreation({ users }) {
               {!teamTwo.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
-          <input type="submit" value="Create" disabled />
+          <input type="submit" value="Create" />
         </div>
       </form>
     </>
