@@ -133,7 +133,7 @@ function MatchCreation({ users }) {
             >
               {teamOne.map((player) => {
                 return (
-                  <div>
+                  <div key={player.id}>
                     <img
                       className={styles.player__img}
                       src={photo}
@@ -219,7 +219,7 @@ function MatchCreation({ users }) {
             >
               {teamTwo.map((player) => {
                 return (
-                  <div>
+                  <div key={player.id}>
                     <img
                       className={styles.player__img}
                       src={photo}
