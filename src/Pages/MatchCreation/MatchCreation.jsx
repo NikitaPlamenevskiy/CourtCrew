@@ -1,3 +1,8 @@
+// TO DO 
+// 1. Убрать форму в отдельеный компонент 
+// 2. заменить styles на className в JSX
+
+
 import { useState } from "react";
 import plus from "../../assets/images/plus.svg";
 import photo from "../../assets/images/playerCard.jpg";
@@ -8,8 +13,6 @@ function MatchCreation({ users }) {
   const [openTeamTwo, setOpenTeamTwo] = useState(false);
   const [teamOne, setTeamOne] = useState([]);
   const [teamTwo, setTeamTwo] = useState([]);
-
-  console.log(teamOne);
 
   const availableTeamOne = users.filter((user) => {
     return !teamTwo.some((player) => player.id === user.id);
@@ -49,18 +52,34 @@ function MatchCreation({ users }) {
     }
   }
 
+  function submitForm(formData) {
+    const matchName = formData.get("matchName");
+    const matchDate = formData.get("matchDate");
+
+    const date = new Date(matchDate).toString();
+
+    const match = {
+      matchName: matchName,
+      matchDate: Date.parse(date),
+      teamOne: teamOne,
+      teamTwo: teamTwo,
+    };
+
+    console.log(match);
+  }
+
   return (
     <>
       <h1 className={styles.title}>Match creation</h1>
-      <form action="">
+      <form action={submitForm}>
         <div className={styles.wrapper}>
           <div className={styles.inputBlock}>
-            <label htmlFor="name">Match name</label>
-            <input type="text" name="name" placeholder="Match name" />
+            <label>Match name</label>
+            <input type="text" name="matchName" placeholder="Match name" />
           </div>
           <div className={styles.inputBlock}>
-            <label htmlFor="date">Match date</label>
-            <input type="date" name="date" />
+            <label>Match date</label>
+            <input type="date" name="matchDate" />
           </div>
           <div
             className={`${styles.users__list} ${openTeamOne ? `${styles.open}` : ""}`}
@@ -119,7 +138,7 @@ function MatchCreation({ users }) {
             >
               {teamOne.map((player) => {
                 return (
-                  <div>
+                  <div key={player.id}>
                     <img
                       className={styles.player__img}
                       src={photo}
@@ -145,7 +164,7 @@ function MatchCreation({ users }) {
                 toggleModal(event, "teamOne");
               }}
             >
-              <img src={plus} alt="Add" />
+              {!teamOne.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
           <div
@@ -205,7 +224,7 @@ function MatchCreation({ users }) {
             >
               {teamTwo.map((player) => {
                 return (
-                  <div>
+                  <div key={player.id}>
                     <img
                       className={styles.player__img}
                       src={photo}
@@ -231,11 +250,10 @@ function MatchCreation({ users }) {
                 toggleModal(event, "teamTwo");
               }}
             >
-              <img src={plus} alt="Add" />
+              {!teamTwo.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
-
-          <input type="submit" value="Create" disabled />
+          <input type="submit" value="Create" />
         </div>
       </form>
     </>
