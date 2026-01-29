@@ -9,6 +9,8 @@ function MatchCreation({ users }) {
   const [teamOne, setTeamOne] = useState([]);
   const [teamTwo, setTeamTwo] = useState([]);
 
+  console.log(teamOne);
+
   const availableTeamOne = users.filter((user) => {
     return !teamTwo.some((player) => player.id === user.id);
   });
@@ -26,24 +28,25 @@ function MatchCreation({ users }) {
     }
   }
 
-  function addPlayersToTeam(event, user) {
-    setTeamOne((prev) => {
-      if (event.target.checked) {
-        return [...prev, user];
-      } else {
-        return prev.filter((player) => player.id !== user.id);
-      }
-    });
-  }
+  function addPlayersToTeam(event, user, team) {
+    if (team === "teamOne")
+      setTeamOne((prev) => {
+        if (event.target.checked) {
+          return [...prev, user];
+        } else {
+          return prev.filter((player) => player.id !== user.id);
+        }
+      });
 
-  function addPlayersToTeamTwo(event, user) {
-    setTeamTwo((prev) => {
-      if (event.target.checked) {
-        return [...prev, user];
-      } else {
-        return prev.filter((player) => player.id !== user.id);
-      }
-    });
+    if (team === "teamTwo") {
+      setTeamTwo((prev) => {
+        if (event.target.checked) {
+          return [...prev, user];
+        } else {
+          return prev.filter((player) => player.id !== user.id);
+        }
+      });
+    }
   }
 
   return (
@@ -73,7 +76,9 @@ function MatchCreation({ users }) {
                       type="checkbox"
                       name="player"
                       checked={teamOne.some((player) => player.id === user.id)}
-                      onChange={(event) => addPlayersToTeam(event, user)}
+                      onChange={(event) =>
+                        addPlayersToTeam(event, user, "teamOne")
+                      }
                       disabled={
                         teamOne.length === 5 &&
                         !teamOne.some((player) => player.id === user.id)
@@ -103,6 +108,37 @@ function MatchCreation({ users }) {
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-one">Team one</label>
+            <div
+              style={{
+                marginBottom: "10px",
+                display: "flex",
+                flexDirection: "row",
+                gap: "22px",
+                overflow: "scroll",
+              }}
+            >
+              {teamOne.map((player) => {
+                return (
+                  <div>
+                    <img
+                      className={styles.player__img}
+                      src={photo}
+                      alt={player.name}
+                    />
+                    <p
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        margin: "0px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {player.name.slice(0, 1)}.{player.surname.slice(0, 1)}.
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
             <button
               className={styles.button}
               onClick={(event) => {
@@ -126,7 +162,9 @@ function MatchCreation({ users }) {
                       type="checkbox"
                       name="player"
                       checked={teamTwo.some((player) => player.id === user.id)}
-                      onChange={(event) => addPlayersToTeamTwo(event, user)}
+                      onChange={(event) =>
+                        addPlayersToTeam(event, user, "teamTwo")
+                      }
                       disabled={
                         teamTwo.length === 5 &&
                         !teamTwo.some((player) => player.id === user.id)
@@ -156,6 +194,37 @@ function MatchCreation({ users }) {
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
+            <div
+              style={{
+                marginBottom: "10px",
+                display: "flex",
+                flexDirection: "row",
+                gap: "22px",
+                overflow: "scroll",
+              }}
+            >
+              {teamTwo.map((player) => {
+                return (
+                  <div>
+                    <img
+                      className={styles.player__img}
+                      src={photo}
+                      alt={player.name}
+                    />
+                    <p
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "700",
+                        margin: "0px",
+                        textAlign: "center",
+                      }}
+                    >
+                      {player.name.slice(0, 1)}.{player.surname.slice(0, 1)}.
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
             <button
               className={styles.button}
               onClick={(event) => {
