@@ -1,3 +1,8 @@
+// TO DO 
+// 1. Убрать форму в отдельеный компонент 
+// 2. заменить styles на className в JSX
+
+
 import { useState } from "react";
 import plus from "../../assets/images/plus.svg";
 import photo from "../../assets/images/playerCard.jpg";
