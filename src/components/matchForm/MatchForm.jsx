@@ -1,7 +1,7 @@
 import { useState } from "react";
 import plus from "../../assets/images/plus.svg";
 import photo from "../../assets/images/playerCard.jpg";
-import styles from "./matchForm.module.css";
+import styles from "./MtchForm.module.css";
 
 function MatchForm({
   teamOne,
