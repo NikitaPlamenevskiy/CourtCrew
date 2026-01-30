@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { MatchForm } from "../../components/matchForm/matchForm";
 import { supabase } from "../../services/supabase/supabase";
+import { MatchForm } from "../../components/matchForm/MatchForm";
 import styles from "./MatchCreation.module.css";
 
 function MatchCreation({ users }) {
