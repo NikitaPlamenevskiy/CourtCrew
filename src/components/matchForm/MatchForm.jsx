@@ -15,21 +15,20 @@ function MatchForm({
 
   const [openTeamOne, setOpenTeamOne] = useState(false);
   const [openTeamTwo, setOpenTeamTwo] = useState(false);
+  const [matchName, setMatchName] = useState("");
   const [date, setDate] = useState(today);
   const [error, setError] = useState({ textInput: false, dateInput: false });
 
   function getCurrentDate(event) {
-    const date = event.target.value;
+    const selectedDate = new Date(event.target.value);
 
-    if (date < today) {
-      return setError((prev) => ({ ...prev, dateInput: true }));
+    if (selectedDate < new Date(today)) {
+      setError((prev) => ({ ...prev, dateInput: true }));
     } else {
       setError((prev) => ({ ...prev, dateInput: false }));
-      return setDate(date);
+      setDate(event.target.value);
     }
   }
-
-  console.log(error);
 
   function toggleModal(event, team) {
     event.preventDefault();
@@ -41,11 +40,10 @@ function MatchForm({
   }
 
   function inputValidation(event) {
-    if (event.target.value < 1) {
-      return setError((prev) => ({ ...prev, textInput: true }));
-    } else {
-      return setError((prev) => ({ ...prev, textInput: false }));
-    }
+    setError((prev) => ({
+      ...prev,
+      textInput: event.target.value.trim() === "",
+    }));
   }
 
   return (
@@ -65,9 +63,15 @@ function MatchForm({
               type="text"
               name="matchName"
               placeholder="Match name"
-              onChange={(event) => inputValidation(event)}
+              onChange={(event) => {
+                setMatchName(event.target.value);
+                inputValidation(event);
+              }}
+              value={matchName}
             />
-            {error.textInput && <span className={styles.error}>Setup match name</span>}
+            {error.textInput && (
+              <span className={styles.error}>Setup match name</span>
+            )}
           </div>
           <div className={styles.inputBlock}>
             <label>Match date</label>
@@ -255,8 +259,11 @@ function MatchForm({
               {!teamTwo.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
-          {!error.textInput && !error.dateInput && <input type="submit" value="Create" />}
-          {error.textInput && error.dateInput && <input type="submit" value="Create" disabled />}
+          <input
+            type="submit"
+            value="Create"
+            disabled={matchName.trim() === "" || error.dateInput}
+          />
         </div>
       </form>
     </>
