@@ -13,6 +13,22 @@
   width: 100%;
 }
 
+.pciked__users {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.users__initials {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0px;
+  text-align: center;
+}
+
 .users__list {
   display: none;
   background: linear-gradient(#182c47, #161616);
@@ -71,14 +87,23 @@ label {
 }
 
 .button {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   width: 100%;
   border: none;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #ec7329;
+  color: #ffff;
   border-radius: 20px;
   font-size: 24px;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #fc873f;
 }
 
 .button_submit {
@@ -111,6 +136,6 @@ input::placeholder {
   padding-right: 20px;
 }
 
-.error{
-  color: rgb(212, 17, 17)
+.error {
+  color: rgb(212, 17, 17);
 }

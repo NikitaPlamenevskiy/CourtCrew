@@ -13,8 +13,7 @@ function MatchForm({
 }) {
   const today = new Date().toLocaleDateString("en-CA");
 
-  const [openTeamOne, setOpenTeamOne] = useState(false);
-  const [openTeamTwo, setOpenTeamTwo] = useState(false);
+  const [openTeam, setOpenTeam] = useState({ teamOne: false, teamTwo: false });
   const [matchName, setMatchName] = useState("");
   const [date, setDate] = useState(today);
   const [error, setError] = useState({ textInput: false, dateInput: false });
@@ -32,10 +31,11 @@ function MatchForm({
 
   function toggleModal(event, team) {
     event.preventDefault();
+
     if (team === "teamOne") {
-      setOpenTeamOne((prev) => !prev);
+      setOpenTeam((prev) => ({ ...prev, teamOne: !prev.teamOne }));
     } else if (team === "teamTwo") {
-      setOpenTeamTwo((prev) => !prev);
+      setOpenTeam((prev) => ({ ...prev, teamTwo: !prev.teamTwo }));
     }
   }
 
@@ -88,7 +88,7 @@ function MatchForm({
             )}
           </div>
           <div
-            className={`${styles.users__list} ${openTeamOne ? `${styles.open}` : ""}`}
+            className={`${styles.users__list} ${openTeam.teamOne ? `${styles.open}` : ""}`}
           >
             <h1>Team one</h1>
             <span>{teamOne.length} from 5</span>
@@ -133,15 +133,7 @@ function MatchForm({
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-one">Team one</label>
-            <div
-              style={{
-                marginBottom: "10px",
-                display: "flex",
-                flexDirection: "row",
-                gap: "22px",
-                overflow: "scroll",
-              }}
-            >
+            <div className={styles.pciked__users}>
               {teamOne.map((player) => {
                 return (
                   <div key={player.id}>
@@ -150,14 +142,7 @@ function MatchForm({
                       src={photo}
                       alt={player.name}
                     />
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        margin: "0px",
-                        textAlign: "center",
-                      }}
-                    >
+                    <p className={styles.users__initials}>
                       {player.name.slice(0, 1)}.{player.surname.slice(0, 1)}.
                     </p>
                   </div>
@@ -174,7 +159,7 @@ function MatchForm({
             </button>
           </div>
           <div
-            className={`${styles.users__list} ${openTeamTwo ? `${styles.open}` : ""}`}
+            className={`${styles.users__list} ${openTeam.teamTwo ? `${styles.open}` : ""}`}
           >
             <h1>Team two</h1>
             <span>{teamTwo.length} from 5</span>
@@ -219,15 +204,7 @@ function MatchForm({
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
-            <div
-              style={{
-                marginBottom: "10px",
-                display: "flex",
-                flexDirection: "row",
-                gap: "22px",
-                overflow: "scroll",
-              }}
-            >
+            <div className={styles.pciked__users}>
               {teamTwo.map((player) => {
                 return (
                   <div key={player.id}>
@@ -236,14 +213,7 @@ function MatchForm({
                       src={photo}
                       alt={player.name}
                     />
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        margin: "0px",
-                        textAlign: "center",
-                      }}
-                    >
+                    <p className={styles.users__initials}>
                       {player.name.slice(0, 1)}.{player.surname.slice(0, 1)}.
                     </p>
                   </div>
