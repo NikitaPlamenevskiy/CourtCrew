@@ -13,8 +13,7 @@ function MatchForm({
 }) {
   const today = new Date().toLocaleDateString("en-CA");
 
-  const [openTeamOne, setOpenTeamOne] = useState(false);
-  const [openTeamTwo, setOpenTeamTwo] = useState(false);
+  const [openTeam, setOpenTeam] = useState({ teamOne: false, teamTwo: false });
   const [matchName, setMatchName] = useState("");
   const [date, setDate] = useState(today);
   const [error, setError] = useState({ textInput: false, dateInput: false });
@@ -32,11 +31,11 @@ function MatchForm({
 
   function toggleModal(event, team) {
     event.preventDefault();
-    
+
     if (team === "teamOne") {
-      setOpenTeamOne((prev) => !prev);
+      setOpenTeam((prev) => ({ ...prev, teamOne: !prev.teamOne }));
     } else if (team === "teamTwo") {
-      setOpenTeamTwo((prev) => !prev);
+      setOpenTeam((prev) => ({ ...prev, teamTwo: !prev.teamTwo }));
     }
   }
 
@@ -89,7 +88,7 @@ function MatchForm({
             )}
           </div>
           <div
-            className={`${styles.users__list} ${openTeamOne ? `${styles.open}` : ""}`}
+            className={`${styles.users__list} ${openTeam.teamOne ? `${styles.open}` : ""}`}
           >
             <h1>Team one</h1>
             <span>{teamOne.length} from 5</span>
@@ -160,7 +159,7 @@ function MatchForm({
             </button>
           </div>
           <div
-            className={`${styles.users__list} ${openTeamTwo ? `${styles.open}` : ""}`}
+            className={`${styles.users__list} ${openTeam.teamTwo ? `${styles.open}` : ""}`}
           >
             <h1>Team two</h1>
             <span>{teamTwo.length} from 5</span>
