@@ -13,6 +13,21 @@
   width: 100%;
 }
 
+.pciked__users {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  overflow: scroll;
+}
+
+.users__initials {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0px;
+  text-align: center;
+}
+
 .users__list {
   display: none;
   background: linear-gradient(#182c47, #161616);
@@ -111,6 +126,6 @@ input::placeholder {
   padding-right: 20px;
 }
 
-.error{
-  color: rgb(212, 17, 17)
+.error {
+  color: rgb(212, 17, 17);
 }

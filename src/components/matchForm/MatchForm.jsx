@@ -32,6 +32,7 @@ function MatchForm({
 
   function toggleModal(event, team) {
     event.preventDefault();
+    
     if (team === "teamOne") {
       setOpenTeamOne((prev) => !prev);
     } else if (team === "teamTwo") {
@@ -133,15 +134,7 @@ function MatchForm({
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-one">Team one</label>
-            <div
-              style={{
-                marginBottom: "10px",
-                display: "flex",
-                flexDirection: "row",
-                gap: "22px",
-                overflow: "scroll",
-              }}
-            >
+            <div className={styles.pciked__users}>
               {teamOne.map((player) => {
                 return (
                   <div key={player.id}>
@@ -150,14 +143,7 @@ function MatchForm({
                       src={photo}
                       alt={player.name}
                     />
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        margin: "0px",
-                        textAlign: "center",
-                      }}
-                    >
+                    <p className={styles.users__initials}>
                       {player.name.slice(0, 1)}.{player.surname.slice(0, 1)}.
                     </p>
                   </div>
@@ -219,15 +205,7 @@ function MatchForm({
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
-            <div
-              style={{
-                marginBottom: "10px",
-                display: "flex",
-                flexDirection: "row",
-                gap: "22px",
-                overflow: "scroll",
-              }}
-            >
+            <div className={styles.pciked__users}>
               {teamTwo.map((player) => {
                 return (
                   <div key={player.id}>
@@ -236,14 +214,7 @@ function MatchForm({
                       src={photo}
                       alt={player.name}
                     />
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "700",
-                        margin: "0px",
-                        textAlign: "center",
-                      }}
-                    >
+                    <p className={styles.users__initials}>
                       {player.name.slice(0, 1)}.{player.surname.slice(0, 1)}.
                     </p>
                   </div>
