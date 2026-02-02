@@ -54,6 +54,8 @@ function MatchCreation({ users }) {
 
     if (error) {
       console.log(error.message);
+    } else {
+      console.log("match created");
     }
   }
 

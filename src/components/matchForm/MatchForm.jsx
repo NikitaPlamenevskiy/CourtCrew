@@ -11,8 +11,25 @@ function MatchForm({
   addPlayersToTeam,
   submitForm,
 }) {
+  const today = new Date().toLocaleDateString("en-CA");
+
   const [openTeamOne, setOpenTeamOne] = useState(false);
   const [openTeamTwo, setOpenTeamTwo] = useState(false);
+  const [date, setDate] = useState(today);
+  const [error, setError] = useState({ textInput: false, dateInput: false });
+
+  function getCurrentDate(event) {
+    const date = event.target.value;
+
+    if (date < today) {
+      return setError((prev) => ({ ...prev, dateInput: true }));
+    } else {
+      setError((prev) => ({ ...prev, dateInput: false }));
+      return setDate(date);
+    }
+  }
+
+  console.log(error);
 
   function toggleModal(event, team) {
     event.preventDefault();
@@ -23,22 +40,48 @@ function MatchForm({
     }
   }
 
+  function inputValidation(event) {
+    if (event.target.value < 1) {
+      return setError((prev) => ({ ...prev, textInput: true }));
+    } else {
+      return setError((prev) => ({ ...prev, textInput: false }));
+    }
+  }
+
   return (
     <>
-      <form onSubmit={async (e) => {
-        e.preventDefault();
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
 
-        const formData = new FormData(e.target)
-        await submitForm(formData);
-      }}>
+          const formData = new FormData(e.target);
+          await submitForm(formData);
+        }}
+      >
         <div className={styles.wrapper}>
           <div className={styles.inputBlock}>
             <label>Match name</label>
-            <input type="text" name="matchName" placeholder="Match name" />
+            <input
+              type="text"
+              name="matchName"
+              placeholder="Match name"
+              onChange={(event) => inputValidation(event)}
+            />
+            {error.textInput && <span className={styles.error}>Setup match name</span>}
           </div>
           <div className={styles.inputBlock}>
             <label>Match date</label>
-            <input type="date" name="matchDate" />
+            <input
+              type="date"
+              name="matchDate"
+              onChange={getCurrentDate}
+              value={date}
+            />
+            {error.dateInput && (
+              <span className={styles.error}>
+                Dates in the past are not allowed.
+              </span>
+            )}
           </div>
           <div
             className={`${styles.users__list} ${openTeamOne ? `${styles.open}` : ""}`}
@@ -212,7 +255,8 @@ function MatchForm({
               {!teamTwo.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
-          <input type="submit" value="Create" />
+          {!error.textInput && !error.dateInput && <input type="submit" value="Create" />}
+          {error.textInput && error.dateInput && <input type="submit" value="Create" disabled />}
         </div>
       </form>
     </>

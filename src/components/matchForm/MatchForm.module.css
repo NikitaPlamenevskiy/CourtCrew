@@ -110,3 +110,7 @@ input::placeholder {
   font-size: 22px;
   padding-right: 20px;
 }
+
+.error{
+  color: rgb(212, 17, 17)
+}
