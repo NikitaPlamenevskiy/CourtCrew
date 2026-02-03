@@ -14,9 +14,10 @@ const STATUS_COLORS = {
 };
 
 function MatchCard({ match, onClick }) {
-  function defineColorStatus() {
-    if (!match) return;
-    const status = match.status;
+  const startDate = new Date(match.start_at);
+  const status = startDate <= new Date() ? "Live" : "Awaiting";
+
+  function defineColorStatus(status) {
     return STATUS_COLORS[status];
   }
 
@@ -31,46 +32,54 @@ function MatchCard({ match, onClick }) {
       <div className={styles.card} onClick={onClick}>
         <div className={styles.wrapper}>
           <div className={styles.wrapper}>
-            <h1 className={styles.status}>{match.status}</h1>
+            <h1 className={styles.status}>{status}</h1>
             <div
               className={styles.status_color}
-              style={{ backgroundColor: defineColorStatus() }}
+              style={{ backgroundColor: defineColorStatus(status) }}
             ></div>
           </div>
-          <h2 className={styles.date}>{match.date}</h2>
+          <h2 className={styles.date}>
+            {startDate.toLocaleDateString("ru-RU")}
+          </h2>
           <div className={styles.wrapper}>
             <div className={styles.wrapper}>
               <img
                 className={styles.team__img}
                 src={team_1}
-                alt={match.teamOne}
+                alt={match.team_one_id}
               />
-              <h3 className={styles.team__name}>{match.teamOne}</h3>
+              <h3 className={styles.team__name}>{match.team_one_id}</h3>
             </div>
             <p
               className={styles.team__points}
               style={{
-                color: defineScoreColor(match.teamOneScore, match.teamTwoScore),
+                color: defineScoreColor(
+                  match.team_one_score,
+                  match.team_two_score,
+                ),
               }}
             >
-              {match.teamOneScore}
+              {match.team_one_score === null ? 0 : match.team_one_score}
             </p>
             <span className={styles.line}></span>
             <div className={styles.wrapper}>
               <img
                 className={styles.team__img}
                 src={team_1}
-                alt={match.teamTwo}
+                alt={match.team_two_id}
               />
-              <h3 className={styles.team__name}>{match.teamTwo}</h3>
+              <h3 className={styles.team__name}>{match.team_two_id}</h3>
             </div>
             <p
               className={styles.team__points}
               style={{
-                color: defineScoreColor(match.teamTwoScore, match.teamOneScore),
+                color: defineScoreColor(
+                  match.team_two_score,
+                  match.team_one_score,
+                ),
               }}
             >
-              {match.teamTwoScore}
+              {match.team_two_score === null ? 0 : match.team_two_score}
             </p>
           </div>
         </div>

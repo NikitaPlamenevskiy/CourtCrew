@@ -1,10 +1,10 @@
 import { MatchesBlock } from "../../components/matchSlider/MathcesBlock";
 import { PlayerBlock } from "../../components/playerCard/PlayerBlock";
 
-function Home() {
+function Home({ matches }) {
   return (
     <>
-      <MatchesBlock />
+      <MatchesBlock matches={matches} />
       <PlayerBlock />
     </>
   );
