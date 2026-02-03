@@ -1,16 +1,38 @@
-# React + Vite
+# Court Crew
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project tech stack
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Supabase Badge](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=fff&style=for-the-badge)
+![Vercel Badge](https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=fff&style=for-the-badge)
 
-Currently, two official plugins are available:
+During creating the project I faced with three main questions: 
+1) Where to store all data? 
+2) Where to host the project?
+3) Project design? 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+That was good points to improve my skills and knowledges, because before this project I had only theoretical knwoledge:
+- Creating a database architecture. (tables / data types and their formats, table connections / pk /fk).
+- Ability to host the project to 3d party service.
+- As I have some experience in Figma, I made from scratch unique design for the project. [LINK] 
 
-## React Compiler
+## Project description
+Court crew - service for basketball lovers, who often play with friends and wants to store their match data, bring a bit of competitiveness into personal and team statistics too. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Contains functionality: 
+Comming Soon 
 
-## Expanding the ESLint configuration
+## Basic commands for running project in dev env: 
+```
+git clone https://github.com/NikitaPlamenevskiy/CourtCrew.git
+npm install 
+npm run dev 
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To Do List: 
+- Create match functionality 
+- Match management functionality
+- Register / Login functionality
+- Connect storage for images (avatars, team icons)
