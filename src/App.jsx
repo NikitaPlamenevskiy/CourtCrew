@@ -11,21 +11,39 @@ import { Match } from "./Pages/Match/Match";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [matches, setMatches] = useState([]);
+
+  console.log(users);
+  console.log(matches);
 
   useEffect(() => {
-    async function getUsers() {
-      const { data } = await supabase.from("users").select();
-      setUsers(data);
+  async function fetchData() {
+    const [
+      { data: users, error: usersError },
+      { data: matches, error: matchesError }
+    ] = await Promise.all([
+      supabase.from("users").select(),
+      supabase.from("matches").select(),
+    ]);
+
+    if (usersError || matchesError) {
+      console.error(usersError || matchesError);
+      return;
     }
-    getUsers();
-  }, []);
+
+    setUsers(users);
+    setMatches(matches);
+  }
+
+  fetchData();
+}, []);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index={true} element={<Home />} />
-          <Route path="matches">
+          <Route index={true} element={<Home matches={matches}/>} />
+          <Route path="matches" >
             <Route index={true} element={<Matches />} />
             <Route path=":id" element={<Match />} />
           </Route>
