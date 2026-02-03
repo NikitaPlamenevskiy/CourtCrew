@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { supabase } from "../../services/supabase/supabase";
 import { MatchForm } from "../../components/matchForm/MatchForm";
+import { MatchSuccess } from "../../components/matchSuccess/MatchSuccess";
 import styles from "./MatchCreation.module.css";
 
 function MatchCreation({ users }) {
   const [teamOne, setTeamOne] = useState([]);
   const [teamTwo, setTeamTwo] = useState([]);
+  const [matchCreated, setMatchCreated] = useState(false);
 
   const availableTeamOne = users.filter((user) => {
     return !teamTwo.some((player) => player.id === user.id);
@@ -55,21 +57,26 @@ function MatchCreation({ users }) {
     if (error) {
       console.log(error.message);
     } else {
-      console.log("match created");
+      setTeamOne([]);
+      setTeamTwo([]);
+      setMatchCreated(true);
     }
   }
 
   return (
     <>
       <h1 className={styles.title}>Match creation</h1>
-      <MatchForm
-        teamOne={teamOne}
-        teamTwo={teamTwo}
-        availableTeamOne={availableTeamOne}
-        availableTeamTwo={availableTeamTwo}
-        addPlayersToTeam={addPlayersToTeam}
-        submitForm={submitForm}
-      />
+      {!matchCreated && (
+        <MatchForm
+          teamOne={teamOne}
+          teamTwo={teamTwo}
+          availableTeamOne={availableTeamOne}
+          availableTeamTwo={availableTeamTwo}
+          addPlayersToTeam={addPlayersToTeam}
+          submitForm={submitForm}
+        />
+      )}
+      {matchCreated && <MatchSuccess />}
     </>
   );
 }
