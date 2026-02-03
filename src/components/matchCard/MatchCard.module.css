@@ -13,11 +13,12 @@
 }
 
 .wrapper {
+  max-width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -69,7 +70,7 @@
 }
 
 .line {
-  width: 100%;
+  width: 400px;
   border-radius: 10px;
   border: 2px solid #ec7329;
 }

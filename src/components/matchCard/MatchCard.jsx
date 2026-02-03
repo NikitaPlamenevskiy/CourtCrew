@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styles from "./MatchCard.module.css";
 import team_1 from "../../assets/images/team_1.png";
 
