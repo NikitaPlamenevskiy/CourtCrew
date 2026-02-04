@@ -2,7 +2,7 @@ import photo from "../../assets/images/playerCard.jpg";
 import ball from "../../assets/images/ball.svg";
 import styles from "./PlayerCard.module.css";
 
-function PlayerCard() {
+function PlayerCard({ user }) {
   return (
     <div className={styles.card}>
       <img className={styles.ball_tl} src={ball} alt="ball" />
@@ -10,9 +10,11 @@ function PlayerCard() {
       <img className={styles.ball_bl} src={ball} alt="ball" />
       <img className={styles.ball_br} src={ball} alt="ball" />
       <div className={styles.card__info}>
-        <p className={styles.card__number}>7</p>
+        <p className={styles.card__number}>{user.playerNumber}</p>
         <img className={styles.card__photo} src={photo} alt="player photo" />
-        <p className={styles.card__name}>Michael Jordan</p>
+        <p className={styles.card__name}>
+          {user.name} {user.surname.length > 6 ? user.surname.slice(0,3) + "..." : user.surname}
+        </p>
       </div>
     </div>
   );

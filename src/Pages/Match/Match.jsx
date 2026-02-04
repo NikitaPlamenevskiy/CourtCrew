@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
-import { matches } from "../../data/matches";
 import photo from "../../assets/images/playerCard.jpg";
 import team_1 from "../../assets/images/team_1.png";
 import styles from "./Match.module.css";
 
-function Match() {
+function Match({matches}) {
   const params = useParams();
 
   const match = matches.find((match) => match.id === Number(params.id));
@@ -14,17 +13,17 @@ function Match() {
       <div className={styles.content}>
         <div className={styles.wrapper}>
           <img className={styles.team__img} src={team_1} alt="TeamOne" />
-          <h2 className={styles.team__name}>{match.teamOne}</h2>
+          <h2 className={styles.team__name}>{match.team_one_id}</h2>
         </div>
         <div className={styles.wrapper}>
           <p className={styles.status}>{match.status}</p>
           <p
             className={styles.score}
-          >{`${match.teamOneScore} : ${match.teamTwoScore}`}</p>
+          >{`${match.team_one_score} : ${match.team_two_score}`}</p>
         </div>
         <div className={styles.wrapper}>
           <img className={styles.team__img} src={team_1} alt="TeamTwo" />
-          <h2 className={styles.team__name}>{match.teamTwo}</h2>
+          <h2 className={styles.team__name}>{match.team_two_id}</h2>
         </div>
         <span className={styles.line}></span>
         <h2 className={styles.header}>Stats</h2>
