@@ -1,6 +1,5 @@
 import { useState } from "react";
 import plus from "../../assets/images/plus.svg";
-import photo from "../../assets/images/playerCard.jpg";
 import styles from "./MatchForm.module.css";
 
 function MatchForm({
@@ -111,7 +110,7 @@ function MatchForm({
                     />
                     <img
                       className={styles.player__img}
-                      src={photo}
+                      src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${user.id}.jpg`}
                       alt={user.name}
                     />
                     <p className={styles.player__name}>
@@ -139,7 +138,7 @@ function MatchForm({
                   <div key={player.id}>
                     <img
                       className={styles.player__img}
-                      src={photo}
+                      src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${player.id}.jpg`}
                       alt={player.name}
                     />
                     <p className={styles.users__initials}>
@@ -182,7 +181,7 @@ function MatchForm({
                     />
                     <img
                       className={styles.player__img}
-                      src={photo}
+                      src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${user.id}.jpg`}
                       alt={user.name}
                     />
                     <p className={styles.player__name}>
@@ -210,7 +209,7 @@ function MatchForm({
                   <div key={player.id}>
                     <img
                       className={styles.player__img}
-                      src={photo}
+                      src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${player.id}.jpg`}
                       alt={player.name}
                     />
                     <p className={styles.users__initials}>
