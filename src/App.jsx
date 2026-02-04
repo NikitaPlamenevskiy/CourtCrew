@@ -20,7 +20,7 @@ function App() {
   async function fetchData() {
     const [
       { data: users, error: usersError },
-      { data: matches, error: matchesError }
+      { data: matches, error: matchesError },
     ] = await Promise.all([
       supabase.from("users").select(),
       supabase.from("matches").select(),
@@ -42,10 +42,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index={true} element={<Home matches={matches}/>} />
+          <Route index={true} element={<Home matches={matches} users={users}/>} />
           <Route path="matches" >
             <Route index={true} element={<Matches />} />
-            <Route path=":id" element={<Match />} />
+            <Route path=":id" element={<Match matches={matches}/>} />
           </Route>
           <Route path="teams" element={<Teams />} />
           <Route path="create" element={<MatchCreation users={users} />} />
