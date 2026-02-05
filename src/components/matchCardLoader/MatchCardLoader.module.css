@@ -1,9 +1,10 @@
 .card {
+  position: relative;
   box-sizing: border-box;
   flex-shrink: 0;
   cursor: pointer;
   max-width: 353px;
-  padding-top: 10px;
+  padding-top: 35px;
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -25,11 +26,32 @@
   align-items: center;
 }
 
+.name {
+  border-radius: 5px 5px 0px 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #ec7329;
+}
+
 .status,
-.date {
+.date,
+.name {
   margin: 0px;
   font-size: 22px;
   font-weight: 700;
+}
+
+.status {
+  width: 63px;
+  height: 26px;
+}
+
+.date {
+  width: 124px;
+  height: 26px;
 }
 
 .status_color {
@@ -39,20 +61,26 @@
 }
 
 .team__img {
+  border-radius: 50%;
   width: 40px;
-  height: auto;
+  height: 40px;
 }
 
 .team__name {
+  width: 250px;
+  height: 18px;
   margin: 0px;
   font-size: 16px;
   font-weight: 500;
 }
 
-.team__points {
-  margin: 0px;
-  font-size: 22px;
-  font-weight: 700;
+.team__img,
+.team__name,
+.status,
+.date {
+  background: linear-gradient(to bottom, #ec7329, #f0a576);
+  background-size: 100% 200%;
+  animation: card 2s linear infinite;
 }
 
 .line {

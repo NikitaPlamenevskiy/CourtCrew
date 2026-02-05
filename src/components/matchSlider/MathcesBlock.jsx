@@ -10,7 +10,7 @@ function MatchesBlock({ matches }) {
     <>
       <h1 className={styles.title}>Matches</h1>
       <div className={styles.cards_container}>
-        {(matches && matches.length > 0)
+        {(matches && matches.length >= 1)
           ? matches.map((match) => {
               return (
                 <MatchCard

@@ -15,10 +15,19 @@ const STATUS_COLORS = {
 
 function MatchCard({ match, onClick }) {
   const startDate = new Date(match.start_at);
-  const status = startDate <= new Date() ? "Live" : "Awaiting";
 
-  function defineColorStatus(status) {
-    return STATUS_COLORS[status];
+  const status = () => {
+    if (startDate.toDateString() === new Date().toDateString()) {
+      return "Live";
+    } else if (startDate > new Date()) {
+      return "Awaiting";
+    } else {
+      return "Ended";
+    }
+  };
+
+  function defineColorStatus() {
+    return STATUS_COLORS[status()];
   }
 
   function defineScoreColor(teamOne, teamTwo) {
@@ -33,7 +42,7 @@ function MatchCard({ match, onClick }) {
         <p className={styles.name}>{match.name}</p>
         <div className={styles.wrapper}>
           <div className={styles.wrapper}>
-            <h1 className={styles.status}>{status}</h1>
+            <h1 className={styles.status}>{status()}</h1>
             <div
               className={styles.status_color}
               style={{ backgroundColor: defineColorStatus(status) }}
