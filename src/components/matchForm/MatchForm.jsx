@@ -15,18 +15,10 @@ function MatchForm({
   const [openTeam, setOpenTeam] = useState({ teamOne: false, teamTwo: false });
   const [matchName, setMatchName] = useState("");
   const [date, setDate] = useState(today);
-  const [error, setError] = useState({ textInput: false, dateInput: false });
-
-  function getCurrentDate(event) {
-    const selectedDate = new Date(event.target.value);
-
-    if (selectedDate < new Date(today)) {
-      setError((prev) => ({ ...prev, dateInput: true }));
-    } else {
-      setError((prev) => ({ ...prev, dateInput: false }));
-      setDate(event.target.value);
-    }
-  }
+  const [error, setError] = useState({
+    textInput: false,
+    dateInput: false,
+  });
 
   function toggleModal(event, team) {
     event.preventDefault();
@@ -35,6 +27,16 @@ function MatchForm({
       setOpenTeam((prev) => ({ ...prev, teamOne: !prev.teamOne }));
     } else if (team === "teamTwo") {
       setOpenTeam((prev) => ({ ...prev, teamTwo: !prev.teamTwo }));
+    }
+  }
+  function getCurrentDate(event) {
+    const selectedDate = new Date(event.target.value);
+
+    if (selectedDate < new Date(today)) {
+      setError((prev) => ({ ...prev, dateInput: true }));
+    } else {
+      setError((prev) => ({ ...prev, dateInput: false }));
+      setDate(event.target.value);
     }
   }
 
@@ -114,7 +116,8 @@ function MatchForm({
                       alt={user.name}
                     />
                     <p className={styles.player__name}>
-                      {user.name} {user.surname}
+                      {user.name} <br />
+                      {user.surname}
                     </p>
                   </div>
                 );
@@ -132,6 +135,7 @@ function MatchForm({
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-one">Team one</label>
+            <span>{teamOne.length} from 5</span>
             <div className={styles.pciked__users}>
               {teamOne.map((player) => {
                 return (
@@ -203,6 +207,7 @@ function MatchForm({
           </div>
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
+            {teamTwo.length} from 5
             <div className={styles.pciked__users}>
               {teamTwo.map((player) => {
                 return (
@@ -231,7 +236,12 @@ function MatchForm({
           <input
             type="submit"
             value="Create"
-            disabled={matchName.trim() === "" || error.dateInput}
+            disabled={
+              matchName.trim() === "" ||
+              error.dateInput ||
+              teamOne.length < 5 ||
+              teamTwo.length < 5
+            }
           />
         </div>
       </form>
