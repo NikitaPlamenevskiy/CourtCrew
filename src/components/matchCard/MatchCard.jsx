@@ -30,6 +30,7 @@ function MatchCard({ match, onClick }) {
   return (
     <>
       <div className={styles.card} onClick={onClick}>
+        <p className={styles.name}>{match.name}</p>
         <div className={styles.wrapper}>
           <div className={styles.wrapper}>
             <h1 className={styles.status}>{status}</h1>

@@ -1,9 +1,10 @@
 .card {
+  position: relative;
   box-sizing: border-box;
   flex-shrink: 0;
   cursor: pointer;
   max-width: 353px;
-  padding-top: 10px;
+  padding-top: 35px;
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -22,8 +23,19 @@
   align-items: center;
 }
 
+.name {
+  border-radius: 5px 5px 0px 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #ec7329;
+}
+
 .status,
-.date {
+.date,
+.name {
   margin: 0px;
   font-size: 22px;
   font-weight: 700;

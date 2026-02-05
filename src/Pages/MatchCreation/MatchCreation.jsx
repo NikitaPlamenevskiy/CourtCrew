@@ -39,7 +39,7 @@ function MatchCreation({ users }) {
   }
 
   async function submitForm(formData) {
-    // const matchName = formData.get("matchName");
+    const matchName = formData.get("matchName");
     const matchDate = formData.get("matchDate");
 
     const date = new Date(matchDate).toISOString();
@@ -47,6 +47,7 @@ function MatchCreation({ users }) {
     const teamTwoIds = teamTwo.map((player) => player.id);
 
     const { error } = await supabase.rpc("create_match", {
+      match_name: matchName,
       team_one_name: "teamOne",
       team_two_name: "teamTwo",
       team_one_players: teamOneIds,
