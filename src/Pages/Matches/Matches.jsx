@@ -1,20 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { MatchCard } from "../../components/matchCard/MatchCard";
-import { matches } from "../../data/matches";
 import styles from "./Matches.module.css";
 
-function Matches() {
+function Matches({ matches, teams }) {
   return (
     <>
       <h1 className={styles.title}>Matches</h1>
       <div className={styles.wrapper}>
-        {matches.map((match) => {
-          return (
-            <NavLink to={String(match.id)} key={match.id}>
-              <MatchCard match={match} />
-            </NavLink>
-          );
-        })}
+        {!matches || (matches.length === 0 && <p>Loading...</p>)}
+        {matches &&
+          matches.map((match) => {
+            return (
+              <NavLink to={String(match.id)} key={match.id}>
+                <MatchCard match={match} teams={teams} />
+              </NavLink>
+            );
+          })}
       </div>
     </>
   );
