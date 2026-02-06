@@ -7,13 +7,15 @@ function Matches({ matches, teams }) {
     <>
       <h1 className={styles.title}>Matches</h1>
       <div className={styles.wrapper}>
-        {matches.map((match) => {
-          return (
-            <NavLink to={String(match.id)} key={match.id}>
-              <MatchCard match={match} teams={teams} />
-            </NavLink>
-          );
-        })}
+        {!matches || (matches.length === 0 && <p>Loading...</p>)}
+        {matches &&
+          matches.map((match) => {
+            return (
+              <NavLink to={String(match.id)} key={match.id}>
+                <MatchCard match={match} teams={teams} />
+              </NavLink>
+            );
+          })}
       </div>
     </>
   );

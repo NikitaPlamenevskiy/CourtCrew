@@ -13,10 +13,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [matches, setMatches] = useState([]);
   const [teams, setTeams] = useState([]);
-
-  console.log(matches);
-  console.log(teams);
-
+  
   useEffect(() => {
     async function fetchData() {
       const [
@@ -51,7 +48,10 @@ function App() {
             element={<Home matches={matches} teams={teams} users={users} />}
           />
           <Route path="matches">
-            <Route index={true} element={<Matches matches={matches} teams={teams}/>} />
+            <Route
+              index={true}
+              element={<Matches matches={matches} teams={teams} />}
+            />
             <Route path=":id" element={<Match matches={matches} />} />
           </Route>
           <Route path="teams" element={<Teams />} />
