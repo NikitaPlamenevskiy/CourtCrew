@@ -59,7 +59,7 @@ function MatchCard({ match, teams, onClick }) {
                 alt={match.team_one_id}
               />
               <h3 className={styles.team__name}>
-                {teams.map((team) => {
+                {teams?.map((team) => {
                   if (team.id === match.team_one_id) {
                     return team.name;
                   }
@@ -85,7 +85,7 @@ function MatchCard({ match, teams, onClick }) {
                 alt={match.team_two_id}
               />
               <h3 className={styles.team__name}>
-                {teams.map((team) => {
+                {teams?.map((team) => {
                   if (team.id === match.team_two_id) {
                     return team.name;
                   }

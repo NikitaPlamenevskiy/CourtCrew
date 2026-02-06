@@ -51,7 +51,7 @@ function App() {
             element={<Home matches={matches} teams={teams} users={users} />}
           />
           <Route path="matches">
-            <Route index={true} element={<Matches />} />
+            <Route index={true} element={<Matches matches={matches} teams={teams}/>} />
             <Route path=":id" element={<Match matches={matches} />} />
           </Route>
           <Route path="teams" element={<Teams />} />
