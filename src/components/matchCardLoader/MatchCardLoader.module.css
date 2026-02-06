@@ -11,9 +11,9 @@
   border: 2px solid #ec7329;
   border-radius: 10px;
 
-  background: linear-gradient(to bottom, #182c47, #161616, #182c47);
+  background: linear-gradient(to bottom, #182c47, #161616);
   background-size: 100% 200%;
-  animation: card 2s linear infinite;
+  animation: card 0.5s linear infinite;
 }
 
 .wrapper {
@@ -72,15 +72,6 @@
   margin: 0px;
   font-size: 16px;
   font-weight: 500;
-}
-
-.team__img,
-.team__name,
-.status,
-.date {
-  background: linear-gradient(to bottom, #ec7329, #f0a576);
-  background-size: 100% 200%;
-  animation: card 2s linear infinite;
 }
 
 .line {

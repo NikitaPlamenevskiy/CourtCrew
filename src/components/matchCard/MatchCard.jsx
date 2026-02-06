@@ -13,7 +13,7 @@ const STATUS_COLORS = {
   Ended: "#D74848",
 };
 
-function MatchCard({ match, onClick }) {
+function MatchCard({ match, teams, onClick }) {
   const startDate = new Date(match.start_at);
 
   const status = () => {
@@ -58,7 +58,13 @@ function MatchCard({ match, onClick }) {
                 src={team_1}
                 alt={match.team_one_id}
               />
-              <h3 className={styles.team__name}>{match.team_one_id}</h3>
+              <h3 className={styles.team__name}>
+                {teams.map((team) => {
+                  if (team.id === match.team_one_id) {
+                    return team.name;
+                  }
+                })}
+              </h3>
             </div>
             <p
               className={styles.team__points}
@@ -78,7 +84,13 @@ function MatchCard({ match, onClick }) {
                 src={team_1}
                 alt={match.team_two_id}
               />
-              <h3 className={styles.team__name}>{match.team_two_id}</h3>
+              <h3 className={styles.team__name}>
+                {teams.map((team) => {
+                  if (team.id === match.team_two_id) {
+                    return team.name;
+                  }
+                })}
+              </h3>
             </div>
             <p
               className={styles.team__points}
