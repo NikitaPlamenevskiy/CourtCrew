@@ -3,7 +3,7 @@ import { MatchCard } from "../matchCard/MatchCard";
 import { MatchCardLoader } from "../matchCardLoader/MatchCardLoader";
 import styles from "./MatchesBlock.module.css";
 
-function MatchesBlock({ matches }) {
+function MatchesBlock({ matches, teams }) {
   const navigate = useNavigate();
 
   return (
@@ -16,6 +16,7 @@ function MatchesBlock({ matches }) {
                 <MatchCard
                   key={match.id}
                   match={match}
+                  teams={teams}
                   onClick={() => navigate(`/matches/${match.id}`)}
                 />
               );

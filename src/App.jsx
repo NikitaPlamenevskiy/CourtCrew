@@ -12,40 +12,47 @@ import { Match } from "./Pages/Match/Match";
 function App() {
   const [users, setUsers] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [teams, setTeams] = useState([]);
 
-  console.log(users);
   console.log(matches);
+  console.log(teams);
 
   useEffect(() => {
-  async function fetchData() {
-    const [
-      { data: users, error: usersError },
-      { data: matches, error: matchesError },
-    ] = await Promise.all([
-      supabase.from("users").select(),
-      supabase.from("matches").select(),
-    ]);
+    async function fetchData() {
+      const [
+        { data: users, error: usersError },
+        { data: matches, error: matchesError },
+        { data: teams, error: teamsError },
+      ] = await Promise.all([
+        supabase.from("users").select(),
+        supabase.from("matches").select(),
+        supabase.from("teams").select(),
+      ]);
 
-    if (usersError || matchesError) {
-      console.error(usersError || matchesError);
-      return;
+      if (usersError || matchesError) {
+        console.error(usersError || matchesError || teamsError);
+        return;
+      }
+
+      setUsers(users);
+      setMatches(matches);
+      setTeams(teams);
     }
 
-    setUsers(users);
-    setMatches(matches);
-  }
-
-  fetchData();
-}, []);
+    fetchData();
+  }, []);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index={true} element={<Home matches={matches} users={users}/>} />
-          <Route path="matches" >
+          <Route
+            index={true}
+            element={<Home matches={matches} teams={teams} users={users} />}
+          />
+          <Route path="matches">
             <Route index={true} element={<Matches />} />
-            <Route path=":id" element={<Match matches={matches}/>} />
+            <Route path=":id" element={<Match matches={matches} />} />
           </Route>
           <Route path="teams" element={<Teams />} />
           <Route path="create" element={<MatchCreation users={users} />} />
