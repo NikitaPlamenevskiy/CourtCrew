@@ -1,5 +1,5 @@
-import styles from "./MatchCard.module.css";
 import team_1 from "../../assets/images/team_1.png";
+import styles from "./MatchCard.module.css";
 
 const SCORE_COLORS = {
   win: "#00911B",

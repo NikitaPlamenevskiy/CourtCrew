@@ -37,7 +37,7 @@
 .date,
 .name {
   margin: 0px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -65,13 +65,13 @@
 }
 
 .team__img {
-  width: 40px;
+  width: 30px;
   height: auto;
 }
 
 .team__name {
   margin: 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -84,5 +84,5 @@
 .line {
   width: 400px;
   border-radius: 10px;
-  border: 2px solid #ec7329;
+  border: 1px solid #ec7329;
 }
