@@ -1,0 +1,82 @@
+.users__list {
+  display: none;
+  background: linear-gradient(#182c47, #161616);
+  text-align: center;
+}
+
+.users__list button {
+  width: auto;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.userScroll {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  color: #ffff;
+  accent-color: #ec7329;
+  width: 20px;
+  height: 20px;
+}
+
+.player__img {
+  width: 55px;
+  height: 55px;
+  border: 2px solid #ec7329;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.player__name {
+  text-align: left;
+  margin: 0px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #ec7329;
+  color: #ffff;
+  border-radius: 20px;
+  font-size: 24px;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #fc873f;
+}
