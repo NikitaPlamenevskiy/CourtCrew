@@ -9,7 +9,7 @@
 ![Supabase Badge](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=fff&style=for-the-badge)
 ![Vercel Badge](https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=fff&style=for-the-badge)
 
-During developing of tis project, I encountered main challenges:
+During developing of this project, I encountered main challenges:
 
 1. Data storage. Where to store all data?
 2. Hosting. Where to host the project?
