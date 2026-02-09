@@ -24,12 +24,9 @@ function MatchForm({
   function toggleModal(event, team) {
     event.preventDefault();
 
-    if (team === "teamOne") {
-      setOpenTeam((prev) => ({ ...prev, teamOne: !prev.teamOne }));
-    } else if (team === "teamTwo") {
-      setOpenTeam((prev) => ({ ...prev, teamTwo: !prev.teamTwo }));
-    }
+    setOpenTeam((prev) => ({ ...prev, [team]: !prev[team] }));
   }
+
   function getCurrentDate(event) {
     const selectedDate = new Date(event.target.value);
 
