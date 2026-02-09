@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TeamListPicker } from "../teamListPicker/TeamListPicker";
 import plus from "../../assets/images/plus.svg";
 import styles from "./MatchForm.module.css";
 
@@ -23,12 +24,9 @@ function MatchForm({
   function toggleModal(event, team) {
     event.preventDefault();
 
-    if (team === "teamOne") {
-      setOpenTeam((prev) => ({ ...prev, teamOne: !prev.teamOne }));
-    } else if (team === "teamTwo") {
-      setOpenTeam((prev) => ({ ...prev, teamTwo: !prev.teamTwo }));
-    }
+    setOpenTeam((prev) => ({ ...prev, [team]: !prev[team] }));
   }
+
   function getCurrentDate(event) {
     const selectedDate = new Date(event.target.value);
 
@@ -88,51 +86,14 @@ function MatchForm({
               </span>
             )}
           </div>
-          <div
-            className={`${styles.users__list} ${openTeam.teamOne ? `${styles.open}` : ""}`}
-          >
-            <h1>Team one</h1>
-            <span>{teamOne.length} from 5</span>
-            <div className={styles.userScroll}>
-              {availableTeamOne.map((user) => {
-                return (
-                  <div className={styles.wrapper} key={user.id}>
-                    <input
-                      className={styles.checkbox}
-                      type="checkbox"
-                      name="player"
-                      checked={teamOne.some((player) => player.id === user.id)}
-                      onChange={(event) =>
-                        addPlayersToTeam(event, user, "teamOne")
-                      }
-                      disabled={
-                        teamOne.length === 5 &&
-                        !teamOne.some((player) => player.id === user.id)
-                      }
-                    />
-                    <img
-                      className={styles.player__img}
-                      src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${user.id}.jpg`}
-                      alt={user.name}
-                    />
-                    <p className={styles.player__name}>
-                      {user.name} <br />
-                      {user.surname}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={(event) => {
-                toggleModal(event, "teamOne");
-              }}
-            >
-              Close
-            </button>
-          </div>
+          <TeamListPicker
+            teamName={"teamOne"}
+            team={teamOne}
+            availableTeam={availableTeamOne}
+            openTeam={openTeam}
+            toggleModal={toggleModal}
+            addPlayersToTeam={addPlayersToTeam}
+          />
           <div className={styles.inputBlock}>
             <label htmlFor="team-one">Team one</label>
             <span>{teamOne.length} from 5</span>
@@ -161,50 +122,15 @@ function MatchForm({
               {!teamOne.length ? <img src={plus} alt="Add" /> : "Edit"}
             </button>
           </div>
-          <div
-            className={`${styles.users__list} ${openTeam.teamTwo ? `${styles.open}` : ""}`}
-          >
-            <h1>Team two</h1>
-            <span>{teamTwo.length} from 5</span>
-            <div className={styles.userScroll}>
-              {availableTeamTwo.map((user) => {
-                return (
-                  <div className={styles.wrapper} key={user.id}>
-                    <input
-                      className={styles.checkbox}
-                      type="checkbox"
-                      name="player"
-                      checked={teamTwo.some((player) => player.id === user.id)}
-                      onChange={(event) =>
-                        addPlayersToTeam(event, user, "teamTwo")
-                      }
-                      disabled={
-                        teamTwo.length === 5 &&
-                        !teamTwo.some((player) => player.id === user.id)
-                      }
-                    />
-                    <img
-                      className={styles.player__img}
-                      src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${user.id}.jpg`}
-                      alt={user.name}
-                    />
-                    <p className={styles.player__name}>
-                      {user.name} {user.surname}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={(event) => {
-                toggleModal(event, "teamTwo");
-              }}
-            >
-              Close
-            </button>
-          </div>
+          <TeamListPicker
+            teamName={"teamTwo"}
+            team={teamTwo}
+            availableTeam={availableTeamTwo}
+            openTeam={openTeam}
+            toggleModal={toggleModal}
+            addPlayersToTeam={addPlayersToTeam}
+          />
+
           <div className={styles.inputBlock}>
             <label htmlFor="team-two">Team two</label>
             {teamTwo.length} from 5
