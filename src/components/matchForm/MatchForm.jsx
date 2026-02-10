@@ -78,22 +78,20 @@ function MatchForm({
         onChange={getCurrentDate}
         error={error.dateInput && "Dates in the past are not allowed."}
       />
-      <TeamPicker teamName={"teamOne"} team={teamOne} onClick={toggleModal} />
-      <TeamListPicker
+      <TeamPicker
         teamName={"teamOne"}
         team={teamOne}
+        onClick={toggleModal}
         availableTeam={availableTeamOne}
         openTeam={openTeam}
-        toggleModal={toggleModal}
         addPlayersToTeam={addPlayersToTeam}
       />
-      <TeamPicker teamName={"teamTwo"} team={teamTwo} onClick={toggleModal} />
-      <TeamListPicker
+      <TeamPicker
         teamName={"teamTwo"}
         team={teamTwo}
+        onClick={toggleModal}
         availableTeam={availableTeamTwo}
         openTeam={openTeam}
-        toggleModal={toggleModal}
         addPlayersToTeam={addPlayersToTeam}
       />
       <input

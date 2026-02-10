@@ -5,7 +5,7 @@ function TeamListPicker({
   teamName,
   team,
   availableTeam,
-  toggleModal,
+  onClick,
   addPlayersToTeam,
 }) {
   return (
@@ -46,8 +46,8 @@ function TeamListPicker({
         type="button"
         className={styles.button}
         onClick={(event) => {
-          toggleModal(event, teamName);
-        }}
+            onClick(event, teamName);
+          }}
       >
         Close
       </button>
