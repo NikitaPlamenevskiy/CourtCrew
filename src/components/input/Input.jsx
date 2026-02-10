@@ -1,14 +1,14 @@
-import styles from "./InputText.module.css";
+import styles from "./Input.module.css";
 
-function InputText({ label, error, value, onChange, placeholder, name }) {
+function Input({ label, error, value, onChange, placeholder, name, type }) {
   return (
     <>
       <label>{label}</label>
       <input
-        name={name}
-        type="text"
-        value={value}
+        type={type}
         placeholder={placeholder}
+        name={name}
+        value={value}
         onChange={onChange}
       />
       {error && <span className={styles.error}>{error}</span>}
@@ -16,4 +16,4 @@ function InputText({ label, error, value, onChange, placeholder, name }) {
   );
 }
 
-export { InputText };
+export { Input };

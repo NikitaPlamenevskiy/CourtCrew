@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TeamListPicker } from "../teamListPicker/TeamListPicker";
 import plus from "../../assets/images/plus.svg";
 import styles from "./MatchForm.module.css";
-import { InputText } from "../inputText/InputText";
+import { Input } from "../input/Input.jsx";
 
 function MatchForm({
   teamOne,
@@ -64,7 +64,8 @@ function MatchForm({
       >
         <div className={styles.wrapper}>
           <div className={styles.inputBlock}>
-            <InputText
+            <Input
+              type={"text"}
               name={"matchName"}
               label={"Match name"}
               placeholder={"Match name"}
@@ -74,18 +75,14 @@ function MatchForm({
             />
           </div>
           <div className={styles.inputBlock}>
-            <label>Match date</label>
-            <input
-              type="date"
-              name="matchDate"
-              onChange={getCurrentDate}
+            <Input
+              type={"date"}
+              name={"matchDate"}
+              label={"Match date"}
               value={date}
+              onChange={getCurrentDate}
+              error={error.dateInput && "Dates in the past are not allowed."}
             />
-            {error.dateInput && (
-              <span className={styles.error}>
-                Dates in the past are not allowed.
-              </span>
-            )}
           </div>
           <TeamListPicker
             teamName={"teamOne"}
