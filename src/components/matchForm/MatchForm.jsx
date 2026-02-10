@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { TeamListPicker } from "../teamListPicker/TeamListPicker";
-import styles from "./MatchForm.module.css";
 import { Input } from "../input/Input.jsx";
 import { TeamPicker } from "../teamPicker/TeamPicker.jsx";
+import styles from "./MatchForm.module.css";
 
 function MatchForm({
   teamOne,
