@@ -2,8 +2,8 @@ import styles from "./Input.module.css";
 
 function Input({ label, error, value, onChange, placeholder, name, type }) {
   return (
-    <>
-      <label>{label}</label>
+    <div className={styles.container}>
+      {label && <label>{label}</label>}
       <input
         type={type}
         placeholder={placeholder}
@@ -12,7 +12,7 @@ function Input({ label, error, value, onChange, placeholder, name, type }) {
         onChange={onChange}
       />
       {error && <span className={styles.error}>{error}</span>}
-    </>
+    </div>
   );
 }
 
