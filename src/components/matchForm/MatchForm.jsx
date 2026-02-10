@@ -24,7 +24,6 @@ function MatchForm({
 
   function toggleModal(event, team) {
     event.preventDefault();
-
     setOpenTeam((prev) => ({ ...prev, [team]: !prev[team] }));
   }
 
@@ -79,6 +78,7 @@ function MatchForm({
         onChange={getCurrentDate}
         error={error.dateInput && "Dates in the past are not allowed."}
       />
+      <TeamPicker teamName={"teamOne"} team={teamOne} onClick={toggleModal} />
       <TeamListPicker
         teamName={"teamOne"}
         team={teamOne}
@@ -87,11 +87,7 @@ function MatchForm({
         toggleModal={toggleModal}
         addPlayersToTeam={addPlayersToTeam}
       />
-      <TeamPicker
-        teamName={"teamOne"}
-        team={teamOne}
-        toggleModal={toggleModal}
-      />
+      <TeamPicker teamName={"teamTwo"} team={teamTwo} onClick={toggleModal} />
       <TeamListPicker
         teamName={"teamTwo"}
         team={teamTwo}
@@ -99,11 +95,6 @@ function MatchForm({
         openTeam={openTeam}
         toggleModal={toggleModal}
         addPlayersToTeam={addPlayersToTeam}
-      />
-      <TeamPicker
-        teamName={"teamTwo"}
-        team={teamTwo}
-        toggleModal={toggleModal}
       />
       <input
         type="submit"

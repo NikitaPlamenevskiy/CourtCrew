@@ -1,7 +1,7 @@
 import plus from "../../assets/images/plus.svg";
 import styles from "./TeamPicker.module.css";
 
-function TeamPicker({ team, teamName, toggleModal }) {
+function TeamPicker({ team, teamName, onClick }) {
   return (
     <div className={styles.container}>
       <h2>{teamName === "teamOne" ? "Team one" : "Team two"}</h2>
@@ -25,7 +25,7 @@ function TeamPicker({ team, teamName, toggleModal }) {
       <button
         className={styles.button}
         onClick={(event) => {
-          toggleModal(event, teamName);
+          onClick(event, teamName);
         }}
       >
         {!team.length ? <img src={plus} alt="Add" /> : "Edit"}
