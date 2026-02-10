@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TeamListPicker } from "../teamListPicker/TeamListPicker";
 import plus from "../../assets/images/plus.svg";
 import styles from "./MatchForm.module.css";
+import { InputText } from "../inputText/InputText";
 
 function MatchForm({
   teamOne,
@@ -38,10 +39,16 @@ function MatchForm({
     }
   }
 
-  function inputValidation(event) {
+  const handleTextInput = (event) => {
+    const value = event.target.value;
+    setMatchName(value);
+    inputValidation(value);
+  };
+
+  function inputValidation(value) {
     setError((prev) => ({
       ...prev,
-      textInput: event.target.value.trim() === "",
+      textInput: value.trim() === "",
     }));
   }
 
@@ -57,20 +64,14 @@ function MatchForm({
       >
         <div className={styles.wrapper}>
           <div className={styles.inputBlock}>
-            <label>Match name</label>
-            <input
-              type="text"
-              name="matchName"
-              placeholder="Match name"
-              onChange={(event) => {
-                setMatchName(event.target.value);
-                inputValidation(event);
-              }}
+            <InputText
+              name={"matchName"}
+              label={"Match name"}
+              placeholder={"Match name"}
               value={matchName}
+              onChange={handleTextInput}
+              error={error.textInput && "Setup match name"}
             />
-            {error.textInput && (
-              <span className={styles.error}>Setup match name</span>
-            )}
           </div>
           <div className={styles.inputBlock}>
             <label>Match date</label>
