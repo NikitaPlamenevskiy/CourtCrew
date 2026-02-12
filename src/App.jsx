@@ -8,12 +8,13 @@ import { Home } from "./Pages/Home/Home";
 import { NotFound } from "./Pages/NotFound/NotFound";
 import { Matches } from "./Pages/Matches/Matches";
 import { Match } from "./Pages/Match/Match";
+import { UsersContext } from "./contexts/UsersContext";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [matches, setMatches] = useState([]);
   const [teams, setTeams] = useState([]);
-  
+
   useEffect(() => {
     async function fetchData() {
       const [
@@ -40,26 +41,28 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route
-            index={true}
-            element={<Home matches={matches} teams={teams} users={users} />}
-          />
-          <Route path="matches">
+    <UsersContext value={users}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
             <Route
               index={true}
-              element={<Matches matches={matches} teams={teams} />}
+              element={<Home matches={matches} teams={teams} />}
             />
-            <Route path=":id" element={<Match matches={matches} />} />
+            <Route path="matches">
+              <Route
+                index={true}
+                element={<Matches matches={matches} teams={teams} />}
+              />
+              <Route path=":id" element={<Match matches={matches} />} />
+            </Route>
+            <Route path="teams" element={<Teams />} />
+            <Route path="create" element={<MatchCreation users={users} />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="teams" element={<Teams />} />
-          <Route path="create" element={<MatchCreation users={users} />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </UsersContext>
   );
 }
 
