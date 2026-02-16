@@ -69,7 +69,7 @@ function Match({ matches, teams }) {
                 if (!user) return;
 
                 return (
-                  <div className={styles.player__card}>
+                  <div key={user.id} className={styles.player__card}>
                     <div>
                       <img
                         className={styles.player__img}
@@ -94,7 +94,7 @@ function Match({ matches, teams }) {
                 if (!user) return;
 
                 return (
-                  <div className={styles.player__card}>
+                  <div key={user.id} className={styles.player__card}>
                     <div>
                       <img
                         className={styles.player__img}
