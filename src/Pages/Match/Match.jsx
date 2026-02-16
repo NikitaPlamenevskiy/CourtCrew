@@ -1,16 +1,42 @@
 import { useParams } from "react-router-dom";
-import photo from "../../assets/images/playerCard.jpg";
+import { useState, useEffect, useContext } from "react";
+import { supabase } from "../../services/supabase/supabase";
+import { UsersContext } from "../../contexts/UsersContext";
 import team_1 from "../../assets/images/team_1.png";
 import styles from "./Match.module.css";
 
 function Match({ matches, teams }) {
+  const users = useContext(UsersContext);
   const params = useParams();
+
+  const [teamPlayers, setTeamPlayers] = useState([]);
 
   const match = matches.find((match) => match.id === Number(params.id));
 
   const [teamOne, teamTwo] = [match?.team_one_id, match?.team_two_id].map(
     (id) => teams.find((team) => team.id === id),
   );
+
+  const [teamOnePlayers, teamTwoPlayers] = [
+    match?.team_one_id,
+    match?.team_two_id,
+  ].map((id) => teamPlayers.filter((players) => players.team_id === id));
+
+  useEffect(() => {
+    async function fetchData() {
+      const [{ data: teamPlayers, error: teamPlayersError }] =
+        await Promise.all([supabase.from("team_players").select()]);
+
+      if (teamPlayersError) {
+        console.error(teamPlayersError);
+        return;
+      }
+
+      setTeamPlayers(teamPlayers);
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -36,32 +62,54 @@ function Match({ matches, teams }) {
             <span className={styles.line}></span>
             <h2 className={styles.header}>Stats</h2>
             <div className={styles.team}>
-              <div className={styles.player__card}>
-                <div>
-                  <img
-                    className={styles.player__img}
-                    src={photo}
-                    alt="user_name"
-                  />
-                  <p className={styles.player__name}>M.J.</p>
-                </div>
-                <span className={styles.line_card}></span>
-                <p className={styles.player__score}>20</p>
-              </div>
+              {teamOnePlayers.map((teamPlayer) => {
+                const user = users.find(
+                  (user) => user.id === teamPlayer.player_id,
+                );
+                if (!user) return;
+
+                return (
+                  <div key={user.id} className={styles.player__card}>
+                    <div>
+                      <img
+                        className={styles.player__img}
+                        src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${user.id}.jpg`}
+                        alt="user_name"
+                      />
+                      <p className={styles.player__name}>
+                        {user.name.slice(0, 1)}.{user.surname.slice(0, 1)}.
+                      </p>
+                    </div>
+                    <span className={styles.line_card}></span>
+                    <p className={styles.player__score}>20</p>
+                  </div>
+                );
+              })}
             </div>
             <div className={styles.team}>
-              <div className={styles.player__card}>
-                <div>
-                  <img
-                    className={styles.player__img}
-                    src={photo}
-                    alt="user_name"
-                  />
-                  <p className={styles.player__name}>M.J.</p>
-                </div>
-                <span className={styles.line_card}></span>
-                <p className={styles.player__score}>20</p>
-              </div>
+              {teamTwoPlayers.map((teamPlayer) => {
+                const user = users.find(
+                  (user) => user.id === teamPlayer.player_id,
+                );
+                if (!user) return;
+
+                return (
+                  <div key={user.id} className={styles.player__card}>
+                    <div>
+                      <img
+                        className={styles.player__img}
+                        src={`https://ayqpmgyhonlttpnaowyq.supabase.co/storage/v1/object/public/avatars/${user.id}.jpg`}
+                        alt="user_name"
+                      />
+                      <p className={styles.player__name}>
+                        {user.name.slice(0, 1)}.{user.surname.slice(0, 1)}.
+                      </p>
+                    </div>
+                    <span className={styles.line_card}></span>
+                    <p className={styles.player__score}>20</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
